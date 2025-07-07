@@ -1,0 +1,29 @@
+[
+  {
+    "payload_bytes": 241,
+    "redelivered": true,
+    "exchange": "messages",
+    "routing_key": "v1.sharGenericEntityChangeEvent.TerminalProductionUnitAssignment.UPDATE",
+    "message_count": 0,
+    "properties": {
+      "message_id": "145e5c42-e1c9-46d6-b29f-b9a5024d8c66",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.sharGenericEntityChangeEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "145e5c42-e1c9-46d6-b29f-b9a5024d8c66",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-bf8e25b0e4fec7b4e091bc822aab5ab6-8ae7d64e829319ad-01",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 2
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"changeType\" : \"UPDATE\",\n  \"entityType\" : \"TerminalProductionUnitAssignment\",\n  \"transferObject\" : {\n    \"@type\" : \"v1.centralTerminalProductionUnitAssignment\",\n    \"terminalId\" : \"AUTOEXEC\",\n    \"productionUnitIds\" : [ \"BLEND01\" ]\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

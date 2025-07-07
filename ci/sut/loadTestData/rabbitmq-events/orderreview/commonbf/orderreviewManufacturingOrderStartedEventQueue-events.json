@@ -1,0 +1,29 @@
+[
+    {
+      "payload_bytes": 1186,
+      "redelivered": false,
+      "exchange": "messages",
+      "routing_key": "v1.sfManufacturingOrderStartedEvent",
+      "message_count": 0,
+      "properties": {
+        "message_id": "8d60b242-5aef-45ac-95d6-88b4650dcd51",
+        "priority": 0,
+        "delivery_mode": 2,
+        "headers": {
+          "Type": "v1.sfManufacturingOrderStartedEvent",
+          "languageTag": "en-US",
+          "spring_returned_message_correlation": "8d60b242-5aef-45ac-95d6-88b4650dcd51",
+          "terminalId": "G32LTWP3WJ",
+          "timeZoneId": "Europe/Berlin",
+          "traceparent": "00-803216b47dfd168f1d7cf5da8a96378a-160d4019a1b8f64d-01",
+          "userId": "101",
+          "userName": "User101",
+          "x-delivery-count": 0
+        },
+        "content_encoding": "UTF-8",
+        "content_type": "application/json"
+      },
+      "payload": "{\n  \"manufacturingOrderId\" : \"VT000132\",\n  \"targetMaterial\" : null,\n  \"targetEquipment\" : {\n    \"id\" : \"CONT01\",\n    \"name\" : \"Container 01\"\n  },\n  \"targetEquipmentType\" : {\n    \"id\" : \"CONT\",\n    \"name\" : \"Container\"\n  },\n  \"specificationId\" : \"ABaiForActivityValue\",\n  \"specificationVersion\" : \"00000002\",\n  \"specificationDescription\" : \"1742902815459-ABaiForActivityValu\",\n  \"specificationExternalId\" : \"ESP/ABaiForActivityValue/1742902815459-ABaiForActivityValu/CONT/00000002/VT000132/Simulation\",\n  \"productionArea\" : {\n    \"id\" : \"PB01\",\n    \"name\" : \"Packaging Pharmacy\"\n  },\n  \"productionType\" : \"experiment\",\n  \"targetBatchNo\" : \"VT000132\",\n  \"targetQuantity\" : null,\n  \"targetQuantityUomId\" : null,\n  \"scheduledStart\" : \"2025-03-25T11:40:16.222Z\",\n  \"scheduledEnd\" : \"2025-03-25T12:40:16.222Z\",\n  \"parentMoId\" : null,\n  \"actualStart\" : \"2025-03-25T11:40:24.366Z\",\n  \"isNextGenShopfloor\" : true,\n  \"shopFloorOrders\" : [ {\n    \"shopFloorOrderId\" : \"5000439990\",\n    \"productionUnit\" : {\n      \"id\" : \"BLEND01\",\n      \"name\" : \"Blending unit no. 1\"\n    },\n    \"basicOperation\" : {\n      \"id\" : \"BO1\",\n      \"name\" : \"Basic Operation\"\n    },\n    \"equipmentPositions\" : [ ]\n  } ]\n}",
+      "payload_encoding": "string"
+    }
+  ]

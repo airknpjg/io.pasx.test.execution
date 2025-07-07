@@ -1,0 +1,138 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderexecution-service-deployment
+  namespace: fat
+  labels:
+    app: orderexecution-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orderexecution-service
+  template:
+    metadata:
+      labels:
+        app: orderexecution-service
+    spec:
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      volumes:
+        - name: languagepack
+          emptyDir: {}
+      # initContainers:
+      #   - name: languagepack
+      #     image: pasxregistry.jfrog.io/pvd/io.pasx.webui.orderexecution.pseudo-lp:${version}
+      #     imagePullPolicy: IfNotPresent
+      #     args:
+      #       - "/opt/service/languagepack"
+      #     volumeMounts:
+      #       - mountPath: /opt/service/languagepack
+      #         name: languagepack
+      containers:
+        -
+          name: orderexecution
+          image: pasxregistry.jfrog.io/pvd-docker/io.pasx.webui.orderexecution:main-latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /opt/service/languagepack
+              name: languagepack
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://127.0.0.1:8080/configservice
+          # -
+          #   name: PASX_POSTINSTALLATION_DISABLE
+          #   value: "true"
+          # -
+          #   name: SPRING_CLOUD_CONFIG_URI
+          #   value: http://configservice-service:8080/configservice
+          # -
+          #   name: server.port
+          #   value: "8080"
+          # -
+          #   name: service.base-uri
+          #   value: https://fat.com/orderexecution
+          # -
+          #   name: COM_WERUM_PASX_BASE_CONFIGURATION_SERVER_SYSTEMQUALIFIER
+          #   value: sut-fat
+          # -
+          #   name: COM_WERUM_PASX_BASE_CONFIGURATION_SERVER_SYSTEMSTYLE
+          #   value: "2"
+          ports:
+            -
+              name: server
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              memory: "800M"
+              cpu: "500m"
+            limits:
+              memory: "800M"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /monitoring/health
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /monitoring/health
+          startupProbe:
+            httpGet:
+              path: /monitoring/health
+              port: 8080
+            # Max startup time 36 * 5 = 180s
+            failureThreshold: 36
+            periodSeconds: 5
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orderexecution-service-service
+  namespace: fat
+  labels:
+    app: orderexecution-service-service
+spec:
+  ports:
+    -
+      name: server
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+#    -
+#      name: monitoring
+#      protocol: TCP
+#      port: 9350
+#      targetPort: 9350
+  selector:
+    app: orderexecution-service
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orderexecution-service-ingress
+  namespace: fat
+  labels:
+    app: orderexecution-service-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    -
+      http:
+        paths:
+          -
+            path: /orderexecution(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: orderexecution-service-service
+                port:
+                  number: 8080

@@ -1,0 +1,28 @@
+[
+  {
+    "payload_bytes": 1139,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.sfManufacturingOrderStartedEvent",
+    "message_count": 0,
+    "properties": {
+      "message_id": "dae18f20-dccf-4ea0-94f7-1f0a5317399d_1",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.sfManufacturingOrderStartedEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "dae18f20-dccf-4ea0-94f7-1f0a5317399d_1",
+        "terminalId": "LP94FFHPQH",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-213b33ffba86770af180e161f6d09f46-55577217720076eb-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"manufacturingOrderId\" : \"VT000126\",\n  \"targetMaterial\" : null,\n  \"targetEquipment\" : {\n    \"id\" : \"BC50N01\",\n    \"name\" : \"Bio Container 50 l 01\"\n  },\n  \"targetEquipmentType\" : {\n    \"id\" : \"BC50\",\n    \"name\" : \"Bio container 50 ltr\"\n  },\n  \"specificationId\" : \"ESP\",\n  \"specificationVersion\" : \"00000001\",\n  \"specificationDescription\" : \"1743000029980-ES\",\n  \"specificationExternalId\" : \"ESP/ESP/1743000029980-ES/BC50/00000001/VT000126/Simulation\",\n  \"productionArea\" : {\n    \"id\" : \"PB01\",\n    \"name\" : \"Packaging Pharmacy\"\n  },\n  \"productionType\" : \"experiment\",\n  \"targetBatchNo\" : \"VT000126\",\n  \"targetQuantity\" : null,\n  \"targetQuantityUomId\" : null,\n  \"scheduledStart\" : \"2025-03-26T14:40:30.371Z\",\n  \"scheduledEnd\" : \"2025-03-26T15:40:30.371Z\",\n  \"parentMoId\" : null,\n  \"actualStart\" : \"2025-03-26T14:40:34.195Z\",\n  \"isNextGenShopfloor\" : true,\n  \"shopFloorOrders\" : [ {\n    \"shopFloorOrderId\" : \"5000426852\",\n    \"productionUnit\" : {\n      \"id\" : \"BLEND01\",\n      \"name\" : \"Blending unit no. 1\"\n    },\n    \"basicOperation\" : {\n      \"id\" : \"BO1\",\n      \"name\" : \"Basic Operation\"\n    },\n    \"equipmentPositions\" : [ ]\n  } ]\n}",
+    "payload_encoding": "string"
+  }
+]

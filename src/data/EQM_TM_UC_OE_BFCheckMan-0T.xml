@@ -1,0 +1,31 @@
+<pasxExport>
+  <metadata>
+    <pasxVersion>PAS-X MES V3.4.0/00</pasxVersion>
+    <additionalVersions>,</additionalVersions>
+    <serviceId>com.werum.pasx.base.infrastructure,com.werum.pasx.central.service</serviceId>
+    <serviceVersion>atlantis-staging-latest,atlantis-staging-latest</serviceVersion>
+    <exportDate>2025-06-09T03:35:24.090718465Z</exportDate>
+    <exportUserId>88100</exportUserId>
+    <exportUserName>RaJ1</exportUserName>
+  </metadata>
+  <equipmentList>
+    <equipment>
+      <equipmentId>EQA_OEEQCheckManT5</equipmentId>
+      <name>EQA_OEEQCheckManT5</name>
+      <equipmentTypeReference>CONT</equipmentTypeReference>
+      <extensions class="java.util.ArrayList"/>
+      <customAttributeAssignments/>
+      <equipmentClass>CONTAINER</equipmentClass>
+      <cleaningRuleId>CONTEXT_BASED</cleaningRuleId>
+    </equipment>
+    <equipment>
+      <equipmentId>EQB_OEEQCheckManT5</equipmentId>
+      <name>EQB_OEEQCheckManT5</name>
+      <equipmentTypeReference>CONT</equipmentTypeReference>
+      <extensions class="java.util.ArrayList"/>
+      <customAttributeAssignments/>
+      <equipmentClass>CONTAINER</equipmentClass>
+      <cleaningRuleId>CONTEXT_BASED</cleaningRuleId>
+    </equipment>
+  </equipmentList>
+</pasxExport>

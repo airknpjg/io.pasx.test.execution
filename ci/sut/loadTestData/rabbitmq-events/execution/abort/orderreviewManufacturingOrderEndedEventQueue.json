@@ -1,0 +1,28 @@
+[
+  {
+    "payload_bytes": 1170,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.sfManufacturingOrderEndedEvent",
+    "message_count": 0,
+    "properties": {
+      "message_id": "50d7d82c-4a11-4a8c-b17d-6aaece4dd18c",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.sfManufacturingOrderEndedEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "50d7d82c-4a11-4a8c-b17d-6aaece4dd18c",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-0440e65a1b5a103ba53baa2d75575197-b0acf2081e8e174b-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"manufacturingOrderId\": \"VT000141\",\n  \"endStatus\": \"ABORTED\",\n  \"isNextGenShopfloor\": true,\n  \"actualEnd\": \"2025-03-26T17:52:53.312Z\"\n}",
+    "payload_encoding": "string"
+  }
+]

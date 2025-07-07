@@ -1,0 +1,28 @@
+[
+  {
+    "payload_bytes": 1829,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v2.mbrMasterBatchRecordEvent",
+    "message_count": 0,
+    "properties": {
+      "message_id": "077d3b6d-83fe-4a25-9231-2a97a7f641e0_1",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v2.mbrMasterBatchRecordEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "077d3b6d-83fe-4a25-9231-2a97a7f641e0_1",
+        "terminalId": "LP94FFHPQH",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-213b33ffba86770af180e161f6d09f46-612f9468ee0452d8-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"extensions\" : [ ],\n  \"mbrKey\" : 5000426769,\n  \"mbrId\" : \"ESP\",\n  \"mbrVersionNumber\" : \"00000001\",\n  \"description\" : \"1743000029980-ES\",\n  \"currentStatus\" : \"draft\",\n  \"currentStatusTranslated\" : \"Draft\",\n  \"archiveStatus\" : \"notArchived\",\n  \"archiveStatusTranslated\" : \"Not archived\",\n  \"archiveDateTimestampISO8601\" : null,\n  \"longDescription\" : \"ESP for BC50: ESP - Correction of Decisions\",\n  \"specificationType\" : \"ESP\",\n  \"specificationTypeTranslated\" : \"Equipment Specification\",\n  \"productionType\" : \"experiment\",\n  \"productionTypeTranslated\" : \"Experiment\",\n  \"erpProductionVersion\" : null,\n  \"targetMaterialId\" : null,\n  \"targetMaterialName\" : null,\n  \"standardBatchSize\" : 0.0,\n  \"estimatedYield\" : 0.0,\n  \"numberOfUnits\" : 0,\n  \"minBatchSize\" : 0.0,\n  \"maxBatchSize\" : 0.0,\n  \"uomId\" : null,\n  \"uomName\" : null,\n  \"equipmentTypeId\" : \"BC50\",\n  \"equipmentTypeName\" : \"Bio container 50 ltr\",\n  \"validFromDateISO8601\" : null,\n  \"validToDateISO8601\" : null,\n  \"taskBasedExecution\" : true,\n  \"webBasedExecution\" : true,\n  \"specificationExternalId\" : \"ESP/ESP/1743000029980-ES/BC50/00000001/VT000126/Simulation\",\n  \"costCenterId\" : null,\n  \"signatures\" : [ ],\n  \"assignedApprovalWorkflows\" : [ {\n    \"releasableType\" : \"com.werum.pasx.ebr.abstractions.ebrorderclosure.BatchRecordReport\",\n    \"workflowDescription\" : \"Batch Record Report\",\n    \"workflowId\" : \"BRR\",\n    \"workflowVersion\" : \"00000001\"\n  }, {\n    \"releasableType\" : \"com.werum.pasx.ebr.abstractions.ebrcore.ElectronicBatchRecord\",\n    \"workflowDescription\" : \"Electronic Record Report\",\n    \"workflowId\" : \"EBR\",\n    \"workflowVersion\" : \"00000001\"\n  }, {\n    \"releasableType\" : \"com.werum.pasx.spec.abstractions.mbr.MasterBatchRecord\",\n    \"workflowDescription\" : \"Master Batch Record\",\n    \"workflowId\" : \"MBR\",\n    \"workflowVersion\" : \"00000001\"\n  } ]\n}",
+    "payload_encoding": "string"
+  }
+]

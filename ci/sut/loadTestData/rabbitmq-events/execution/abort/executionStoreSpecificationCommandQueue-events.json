@@ -1,0 +1,29 @@
+[
+  {
+    "payload_bytes": 2147,
+    "redelivered": true,
+    "exchange": "messages",
+    "routing_key": "v1.executionStoreSpecificationCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "d3624277-d002-4bac-a7ab-15a9a830c1c3",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionStoreSpecificationCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "d3624277-d002-4bac-a7ab-15a9a830c1c3",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-9efcbb1ac8c5df5680f960705555fc63-8c5f6d2f9e2d773e-01",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 1
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"specification\" : {\n    \"id\" : \"Order1\",\n    \"shortDescription\" : \"1742315732300-Order\",\n    \"longDescription\" : \"ESP for BCONT200: Order1 - Equipment Specification Order 1\",\n    \"externalId\" : \"ESP/Order1/1742315732300-Order/BCONT200/00000001/VT000141/Simulation\",\n    \"basicOperations\" : [ {\n      \"id\" : \"BO1\",\n      \"shortDescription\" : \"Basic Operation\",\n      \"longDescription\" : null,\n      \"firstStepId\" : \"CBF1\",\n      \"lastStepId\" : \"CBF1\",\n      \"steps\" : [ {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"CBF1\",\n        \"contextId\" : \"BO1/CBF1\",\n        \"shortDescription\" : \"Common BF\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"executionMode\" : \"MANUAL\",\n        \"nextStepId\" : null,\n        \"type\" : \"CommonBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"activities\" : [ {\n            \"activityType\" : \"list\",\n            \"mbrActivityType\" : \"attributive\",\n            \"id\" : \"1\",\n            \"shortDescription\" : \"Bla\",\n            \"configuration\" : {\n              \"@type\" : \"v1.cbfListActivityConfiguration\",\n              \"options\" : [ {\n                \"type\" : \"SET_VALUE\",\n                \"name\" : \"Y\",\n                \"generationType\" : \"SPECIFICATION\"\n              }, {\n                \"type\" : \"OUT_OF_TOLERANCE\",\n                \"name\" : \"N\",\n                \"generationType\" : \"SPECIFICATION\"\n              } ],\n              \"acquisitionType\" : \"NONE\",\n              \"actualValueFormula\" : null\n            },\n            \"configurationType\" : \"v1.cbfListActivityConfiguration\",\n            \"instructions\" : [ ],\n            \"position\" : 1,\n            \"mandatory\" : true\n          } ],\n          \"signature\" : {\n            \"identificationSignatureType\" : \"NO_IDENTIFICATION\",\n            \"userGroupId\" : null\n          },\n          \"optional\" : false\n        },\n        \"configurationType\" : \"v1.cbfCommonBfConfiguration\",\n        \"optional\" : false\n      } ]\n    } ]\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

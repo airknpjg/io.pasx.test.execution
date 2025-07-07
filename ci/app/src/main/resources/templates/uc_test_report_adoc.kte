@@ -1,0 +1,58 @@
+@import io.pasx.test.report.UseCase
+@import java.time.LocalDate
+@import java.time.format.DateTimeFormatter
+@param useCase: UseCase
+<%-- Content --%>
+= ${useCase.name}
+
+**Description**: link:${useCase.link}[${useCase.description}]
+
+@for(mitigationAction in useCase.mitigationActions)
+== ${mitigationAction.name.replace("\\((.*?)\\)".toRegex()) { matchResult -> "\\(${matchResult.groupValues[1]})" }}
+[cols="50%,25%,25%"]
+|===
+3+| **Mitigation Action: ${mitigationAction.name.replace("\\((.*?)\\)".toRegex()) { matchResult -> "\\(${matchResult.groupValues[1]})" }}** {set:cellbgcolor:lightgrey}
+3+| **Mitigation Action description:** link:${mitigationAction.link}[${mitigationAction.description}] {set:cellbgcolor}
+    @for(scenario in mitigationAction.scenarios)
+3+| **Tags:** ${scenario.tags.joinToString(", ") { it.name }}
+3+| **Scenario:** ${scenario.name}
+        @for(step in scenario.steps)
+            @if(step.result.status == "passed")
+2+| **${step.keyword}:** ${step.name} {set:cellbgcolor} ^.^| [black]#**${step.result.status}**# {set:cellbgcolor:green}
+            @elseif(step.result.status == "failed")
+2+| **${step.keyword}:** ${step.name} {set:cellbgcolor} ^.^| [black]#**${step.result.status}**# {set:cellbgcolor:red}
+            @else
+2+| **${step.keyword}:** ${step.name} {set:cellbgcolor} ^.^| [black]#**${step.result.status}**# {set:cellbgcolor:orange}
+            @endif
+        @endfor
+| **Video Evidence:** {set:cellbgcolor} 2+a|
+video::${scenario.videoLink}[title=${scenario.name}]
+| **Screenshots:** 2+a|
+        @for(screenshotLink in scenario.screenshotLinks)
+image::${screenshotLink}[alt="Screenshot", width=1080, height=1080]
+        @endfor
+    @endfor
+3+| ** Comment (to be finalized or voided by reviewer) **
+3+| ++++
+- -
+ +
+ +
+ +
+ +
+ +
+
+3+| **TIC Information:** +
+- -
+ +
+ +
+ +
+ +
+ +
+
+3+| ** Please fill the corresponding test evidence **
+| Printout 2+| - -
+| Test Result (Passed, Failed, Deferred) 2+|
+| Executed by (date/name TST) | ${LocalDate.now().format(DateTimeFormatter.ISO_DATE)} | SrvDoorsAutomation
+| Reviewed by (date/name TRR) 2+| - -
+|===
+@endfor

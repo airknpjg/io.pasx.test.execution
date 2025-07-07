@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: database-installer-postgres
+  namespace: fat
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        - name: pasx-registry-secret
+      restartPolicy: Never
+      containers:
+        - name: databaseinstaller-container
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.database.installer:main-latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            - name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: pasx
+            - name: LOGGING_LEVEL_ROOT
+              value: INFO
+            - name: JAVA_TOOL_OPTIONS
+              value: -Djava.security.egd=file:/dev/./urandom -Dsecurerandom.source=file:/dev/./urandom -Xmx1500M -Xms1500M -XX:+UseStringDeduplication -Dliquibase.preserveSchemaCase=true
+          resources:
+            requests:
+              memory: "3000M"
+              cpu: "1000m"
+            limits:
+              memory: "3000M"
+              cpu: "1000m"

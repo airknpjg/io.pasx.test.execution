@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: equipment-database-installer-postgres
+  namespace: fat
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      restartPolicy: Never
+      containers:
+        -
+          name: databaseinstaller-container
+          image: pasxregistry.jfrog.io/pvd-docker/com.werum.pasx.equipment.liquibaseexecution:main-latest
+          imagePullPolicy: Always
+          env:
+            -
+              name: SPRING_PROFILES_ACTIVE
+              value: "postgres"
+            -
+              name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            -
+              name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            -
+              name: SPRING_DATASOURCE_PASSWORD
+              value: anyPassword
+            -
+              name: SPRING_DATASOURCE_DRIVER-CLASS-NAME
+              value: org.postgresql.Driver
+            -
+              name: SPRING_JPA_DATABASE-PLATFORM
+              value: org.hibernate.dialect.PostgreSQLDialect

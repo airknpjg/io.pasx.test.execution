@@ -1,0 +1,28 @@
+[
+  {
+    "payload_bytes": 1718,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.exceptionExceptionConfirmedEvent.shopFloorOrder.Confirm manually triggered exception",
+    "message_count": 0,
+    "properties": {
+      "message_id": "492b35b6-8025-4e64-8394-2b6bbc12c702",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.exceptionExceptionConfirmedEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "492b35b6-8025-4e64-8394-2b6bbc12c702",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Lisbon",
+        "traceparent": "00-0440e65a1b5a103ba53baa2d75575197-b0acf2081e8e174b-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"exceptionKey\" : \"01JQ9NN0KDBKSVRVN0VXBM3Z88\",\n  \"exceptionTypeId\" : \"Shop floor order abort\",\n  \"basicFunctionInstanceKey\" : null,\n  \"basicFunctionType\" : null,\n  \"description\" : \"The Shop Floor Order will be aborted.\",\n  \"activityId\" : null,\n  \"shopFloorOrderId\" : {\n    \"orderId\" : \"VT000141\",\n    \"basicOperationId\" : \"BO1\"\n  },\n  \"triggerChangeLog\" : {\n    \"loggedInUserId\" : \"101\",\n    \"loggedInUserName\" : \"User101\",\n    \"executionTime\" : \"2025-03-26T16:47:59.086578586Z\",\n    \"automaticChange\" : false\n  },\n  \"confirmationChangeLog\" : {\n    \"loggedInUserId\" : \"101\",\n    \"loggedInUserName\" : \"User101\",\n    \"executionTime\" : \"2025-03-26T16:48:26.668207085Z\",\n    \"automaticChange\" : false\n  },\n  \"comment\" : \"REASON1\",\n  \"signatureBase\" : {\n    \"signatureKey\" : \"5000013963\",\n    \"signatureEntityKey\" : 5000427829,\n    \"terminalId\" : \"AUTOEXEC\",\n    \"userId\" : \"102\",\n    \"userName\" : \"User102\",\n    \"loggedInUserId\" : \"101\",\n    \"loggedInUserName\" : \"User101\",\n    \"initiatingUserId\" : \"101\",\n    \"initiatingUserName\" : \"User101\",\n    \"signatureId\" : \"ExceptionConfirmationOrderExecutionWeb\",\n    \"signatureType\" : \"IDENTIFICATION\",\n    \"signDate\" : \"2025-03-26T16:48:26.397Z\",\n    \"signDateISO8601\" : \"2025-03-26T16:48:26.397Z\",\n    \"userComment\" : null,\n    \"signatureFailureText\" : \"\",\n    \"isVerification\" : false,\n    \"translatedAction\" : \"Confirm manually triggered exception\",\n    \"relatedObject\" : \"MO ID: VT000141\\nBO ID: BO1\\nException description: The Shop Floor Order will be aborted.\\n\",\n    \"authenticationSystem\" : \"PAS-X\",\n    \"signatureStatus\" : \"SUCCESS\",\n    \"lastChange\" : \"2025-03-26T16:48:26.581368126Z\",\n    \"lastChangeISO8601\" : \"2025-03-26T16:48:26.581368126Z\"\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

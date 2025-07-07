@@ -1,0 +1,52 @@
+{
+  "name": "io.pasx.webui.orderexecution.fat",
+  "version": "0.0.0",
+  "description": "Automated FAT tests for PAS-X WebUI Order Execution",
+  "scripts": {
+    "before:commit": "npm run format && npm run lint && npm run test",
+    "commit": "npm run before:commit && git add . && git-cz",
+    "lint": "eslint . --fix src/steps/**",
+    "lint:check": "eslint src/steps/**",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check --cache",
+    "install:e2e": "npm install && npx playwright install && npx playwright install-deps",
+    "test": "cucumber-js test --exit"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./commitizen.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Koerber-Pharma-Software/io.pasx.webui.orderexecution.fat.git"
+  },
+  "keywords": [
+    "tests",
+    "fat",
+    "cucumber",
+    "playwright"
+  ],
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.24.0",
+    "@playwright/test": "^1.51.1",
+    "@types/axios": "^0.14.4",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "commitizen": "^4.3.1",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.1",
+    "xml2js": "^0.6.2"
+  },
+  "dependencies": {
+    "axios": "^1.9.0"
+  }
+}

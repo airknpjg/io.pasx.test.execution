@@ -1,0 +1,83 @@
+[
+  {
+    "payload_bytes": 1758,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionStoreSpecificationCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "589696db-bfd7-4873-969d-f905173c7220",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionStoreSpecificationCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "589696db-bfd7-4873-969d-f905173c7220",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-672351a3b1ba6e1b579e25d396700a84-ccb6fd6c515a398a-00",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 0
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"specification\" : {\n    \"id\" : \"FAT0001\",\n    \"shortDescription\" : \"1730367907853-FAT000\",\n    \"longDescription\" : \"ESP for BCONT200: FAT0001 - FAT Equipment Check BF Scan identification\",\n    \"externalId\" : \"ESP/FAT0001/1730367907853-FAT000/BCONT200/00000001/VT000122/Simulation\",\n    \"basicOperations\" : [ {\n      \"id\" : \"BO1\",\n      \"shortDescription\" : \"Basic Operation\",\n      \"longDescription\" : null,\n      \"firstStepId\" : \"EQCHK1\",\n      \"lastStepId\" : \"EQCHK1\",\n      \"steps\" : [ {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"EQCHK1\",\n        \"contextId\" : \"BO1/EQCHK1\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"nextStepId\" : null,\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"scan\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : false,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : \"BC200N01\",\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT200\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : null,\n          \"attributiveIdentificationFalseText\" : null\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      } ]\n    } ]\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 2095,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionStoreSpecificationCommand",
+    "message_count": 1,
+    "properties": {
+      "message_id": "74aee537-83bf-4528-aa75-c8c3ac338e15",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionStoreSpecificationCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "74aee537-83bf-4528-aa75-c8c3ac338e15",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-67235cdd96cebc2f1fbbb2ad4d54abae-e8cda0eb28435afc-00",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 0
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"specification\" : {\n    \"id\" : \"FAT0002\",\n    \"shortDescription\" : \"1730370781344-FAT000\",\n    \"longDescription\" : \"ESP for BCONT200: FAT0002 - FAT Equipment Check BF Formula identification\",\n    \"externalId\" : \"ESP/FAT0002/1730370781344-FAT000/BCONT200/00000001/VT000123/Simulation\",\n    \"basicOperations\" : [ {\n      \"id\" : \"BO1\",\n      \"shortDescription\" : \"Basic Operation\",\n      \"longDescription\" : null,\n      \"firstStepId\" : \"EQCHK1\",\n      \"lastStepId\" : \"EQCHK1\",\n      \"steps\" : [ {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"EQCHK1\",\n        \"contextId\" : \"BO1/EQCHK1\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ {\n          \"id\" : {\n            \"name\" : \"equipmentId\",\n            \"itemId\" : null\n          },\n          \"rootNode\" : {\n            \"type\" : \"CONSTANT\",\n            \"value\" : \"BC200N01\",\n            \"dataType\" : \"TEXT\",\n            \"parameters\" : [ ]\n          },\n          \"triggerType\" : \"REQUIRED_BEFORE_EXECUTION\"\n        } ],\n        \"nextStepId\" : null,\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"formula\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : false,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : \"BC200N01\",\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT200\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : null,\n          \"attributiveIdentificationFalseText\" : null\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      } ]\n    } ]\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 1846,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionStoreSpecificationCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "f98e7b83-a3ed-4222-8c75-08b817726936",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionStoreSpecificationCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "f98e7b83-a3ed-4222-8c75-08b817726936",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-67235ceac3ed1fe23a35c8f5ce3f0302-72a1353c49ed9285-00",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 0
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"specification\" : {\n    \"id\" : \"FAT0003\",\n    \"shortDescription\" : \"1730370794320-FAT000\",\n    \"longDescription\" : \"ESP for BCONT200: FAT0003 - FAT Equipment Check BF Atributive identification\",\n    \"externalId\" : \"ESP/FAT0003/1730370794320-FAT000/BCONT200/00000001/VT000124/Simulation\",\n    \"basicOperations\" : [ {\n      \"id\" : \"BO1\",\n      \"shortDescription\" : \"Basic Operation\",\n      \"longDescription\" : null,\n      \"firstStepId\" : \"EQCHK1\",\n      \"lastStepId\" : \"EQCHK1\",\n      \"steps\" : [ {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"EQCHK1\",\n        \"contextId\" : \"BO1/EQCHK1\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"nextStepId\" : null,\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"attributive\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : false,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : \"BC200N01\",\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT200\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : \"Equipment matches required equipment\",\n          \"attributiveIdentificationFalseText\" : \"Equipment does not match required equipment\"\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      } ]\n    } ]\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

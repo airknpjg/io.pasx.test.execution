@@ -1,0 +1,227 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: central
+  namespace: fat
+imagePullSecrets:
+  - name: pasx-registry-secret
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: leader
+  labels:
+    app: central-service-deployment
+    group: org.springframework.cloud
+  namespace: fat
+rules:
+  - apiGroups: ["", "extensions", "apps"]
+    resources: ["configmaps", "pods", "services", "endpoints", "secrets", "bookmarks"]
+    verbs: ["get", "list", "watch", "update", "patch", "create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: central-service-deployment
+    group: org.springframework.cloud
+  name: leader
+  namespace: fat
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: leader
+subjects:
+  - kind: ServiceAccount
+    name: central
+    namespace: fat
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: central-leader-election
+  namespace: fat
+data: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: central-service-deployment
+  namespace: fat
+  labels:
+    app: central-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: central-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: central-service
+    spec:
+      automountServiceAccountToken: true
+      serviceAccountName: central
+      imagePullSecrets:
+        - name: pasx-registry-secret
+      # add an init-container which creates the folder mbr_archivetest in the testsharedfolder
+      initContainers:
+        - name: create-mbr-archivetest-folder
+          image: busybox
+          command: [ 'sh', '-c', 'mkdir -p /testsharedfolder/mbr_archivetest' ]
+          volumeMounts:
+            - name: testsharedfolder
+              mountPath: /testsharedfolder
+      containers:
+        - name: central-service-container
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.central.service:main-latest
+          imagePullPolicy: Always
+          ports:
+            - name: service
+              containerPort: 8081
+              protocol: TCP
+            - name: debug
+              containerPort: 5005
+              protocol: TCP
+          volumeMounts:
+            - name: testsharedfolder
+              mountPath: "/testsharedfolder"
+              readOnly: false
+            - name: shared
+              mountPath: "/opt/service/shared"
+              readOnly: false
+            - name: logs
+              mountPath: "/logs"
+              readOnly: false
+          env:
+            # role for the leader election
+            - name: spring.cloud.kubernetes.leader.role
+              value: world
+            # Configmap to which leader election metadata will be saved
+            - name: spring.cloud.kubernetes.leader.namespace
+              value: fat
+            # TODO: may cause tests to fail, if needed we have to find a way to provide a mailhost
+            # - name: SPRING_MAIL_HOST
+            # value: servicetest
+            - name: PASX_MES_CENTRAL_NEXTGENSHOPFLOOR_MBR_ENABLED
+              value: "true"
+            - name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            - name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: pasx
+            - name: COM_WERUM_PASX_PRINTING_DATABASE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            - name: COM_WERUM_PASX_PRINTING_DATABASE_USER
+              value: pasx
+            - name: COM_WERUM_PASX_PRINTING_DATABASE_PASSWORD
+              value: pasx
+            - name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-service
+            - name: SPRING_RABBITMQ_USERNAME
+              value: pasx
+            - name: SPRING_RABBITMQ_PASSWORD
+              value: pasx
+            - name: messaging_host
+              value: rabbitmq
+            - name: messaging_password
+              value: pasx
+            - name: MANAGEMENT_SERVER_PORT
+              value: "8081"
+            - name: FILESERVER_FOLDER
+              value: file:///testsharedfolder
+            - name: pasx_mes_shared_help_baseUri
+              value: http://central-service:8888/pasxhelp
+            - name: PASX_MES_SHARED_SERVICE_BASE-URI
+              value: http://${hostname}:8888/central/ui
+            - name: LOGGING_LEVEL_LIQUIBASE
+              value: info
+            - name: PASX_MES_CENTRAL_PRINTING_UPLOAD_CENTRALINTERNALBASEURL
+              value: http://central-service:8081/central
+            - name: JAVA_OPTS
+              value: "-Dcom.jcoffee.abstractions.language.MLtext.NOT_FOUND=@@"
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Duser.timezone=Europe/Berlin -Duser.language=en -Duser.country=US
+              -XX:MaxRAMPercentage=80
+              -Djboss.platform.mbeanserver
+              -Dcentral.allowLogonViaUi=true
+              -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+              -Dpasx.product.global.marketingversion=\"PAS-X undefined version - to be set by the system composition\"
+              -Dpasx.mes.central.orderexecutionweb.mbr.orderExecution.baseUri=http://${hostname}:8888/orderexecution
+              -Dfile.encoding=UTF8"
+          livenessProbe:
+            httpGet:
+              path: /central/monitoring/health/liveness
+              port: 8081
+              scheme: HTTP
+            timeoutSeconds: 300
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /central/monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+          startupProbe:
+            httpGet:
+              path: /central/monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+            initialDelaySeconds: 120
+            periodSeconds: 10
+            failureThreshold: 100
+      restartPolicy: Always
+      volumes:
+        - name: testsharedfolder
+          hostPath:
+            path: "/opt/pasx/testsharedfolder"
+        - name: shared
+          hostPath:
+            path: "/opt/pasx/shared"
+        - name: logs
+          emptyDir: { }
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: central-service
+  namespace: fat
+  labels:
+    app: central-service
+spec:
+  ports:
+    - name: service
+      port: 8081
+      targetPort: 8081
+      protocol: TCP
+    - name: debug
+      port: 5005
+      targetPort: 5005
+      protocol: TCP
+  selector:
+    app: central-service
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: central-service-ingress
+  namespace: fat
+  labels:
+    app: central-service-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "150m"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /central(/|$)(.*)
+            pathType: Exact
+            backend:
+              service:
+                name: central-service
+                port:
+                  number: 8081

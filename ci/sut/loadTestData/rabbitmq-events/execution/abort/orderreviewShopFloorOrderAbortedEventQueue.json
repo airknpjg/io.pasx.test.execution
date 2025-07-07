@@ -1,0 +1,28 @@
+[
+  {
+    "payload_bytes": 1170,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.sfShopFloorOrderAbortedEvent",
+    "message_count": 0,
+    "properties": {
+      "message_id": "50d7d82c-4a11-4a8c-b17d-6aaece4dd18c",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.sfShopFloorOrderAbortedEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "50d7d82c-4a11-4a8c-b17d-6aaece4dd18c",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-0440e65a1b5a103ba53baa2d75575197-b0acf2081e8e174b-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"abortedShopFloorOrder\": {\n    \"orderId\": \"VT000141\",\n    \"basicOperationId\": \"BO1\"\n  },\n  \"abortTime\": \"2025-03-26T17:52:53.312807725Z\",\n  \"canceledInstanceKeys\": [\n    \"01JQ9S5HM5A8RHD327W2P7HGAZ\"\n  ],\n  \"loggedInUserId\": \"101\",\n  \"loggedInUserName\": \"User101\",\n  \"confirmationTime\": \"2025-03-26T17:52:52.996489215Z\",\n  \"comment\": \"REASON1\",\n  \"signatureBase\": {\n    \"signatureKey\": \"5000063004\",\n    \"signatureEntityKey\": 5045531868,\n    \"terminalId\": \"AUTOEXEC\",\n    \"userId\": \"101\",\n    \"userName\": \"User101\",\n    \"loggedInUserId\": \"101\",\n    \"loggedInUserName\": \"User101\",\n    \"initiatingUserId\": \"101\",\n    \"initiatingUserName\": \"User101\",\n    \"signatureId\": \"ExceptionConfirmationOrderExecutionWeb\",\n    \"signatureType\": \"IDENTIFICATION\",\n    \"signDate\": \"2025-03-26T17:52:52.191Z\",\n    \"signDateISO8601\": \"2025-03-26T17:52:52.191Z\",\n    \"userComment\": null,\n    \"signatureFailureText\": \"\",\n    \"isVerification\": false,\n    \"translatedAction\": \"Abort Shop Floor Order\",\n    \"relatedObject\": \"MO ID: VT005373\\nBO ID: BO1\\nException description: The Shop Floor Order will be aborted.\\n\",\n    \"authenticationSystem\": \"PAS-X\",\n    \"signatureStatus\": \"SUCCESS\",\n    \"lastChange\": \"2025-03-26T17:52:52.700201561Z\",\n    \"lastChangeISO8601\": \"2025-03-26T17:52:52.700201561Z\"\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

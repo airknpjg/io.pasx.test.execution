@@ -1,0 +1,6 @@
+@import io.pasx.test.report.UseCase
+@param useCases: List<UseCase>
+<%-- Content --%>
+* xref:pages/index.adoc[Overview]
+@for(useCase in useCases)
+* xref:pages/${useCase.name}/index.adoc[${useCase.name}]@endfor

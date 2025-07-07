@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: orderreview-database-installer-postgres
+  namespace: fat
+spec:
+  template:
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        - name: pasx-registry-secret
+      restartPolicy: Never
+      containers:
+        - name: databaseinstaller-container
+          image: pasxregistry.jfrog.io/pvd-docker/com.werum.pasx.orderreview.liquibaseexecution:main-latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            - name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: anyPassword

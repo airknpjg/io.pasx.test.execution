@@ -1,0 +1,50 @@
+<pasxExport>
+  <metadata>
+    <pasxVersion>PAS-X MES V3.4.0/00</pasxVersion>
+    <additionalVersions>,</additionalVersions>
+    <serviceId>com.werum.pasx.base.infrastructure,com.werum.pasx.central.service</serviceId>
+    <serviceVersion>atlantis-staging-latest,atlantis-staging-latest</serviceVersion>
+    <exportDate>2025-06-10T09:46:40.211069466Z</exportDate>
+    <exportUserId>88100</exportUserId>
+    <exportUserName>RaJ1</exportUserName>
+  </metadata>
+  <equipmentTypeList>
+    <equipmentType>
+      <equipmentTypeId>EQTA_OEEQCheckManT25</equipmentTypeId>
+      <name>Container</name>
+      <stateDiagrams>
+        <equipmentTypeStateDiagram>
+          <stateDiagramReference>Assembly</stateDiagramReference>
+        </equipmentTypeStateDiagram>
+        <equipmentTypeStateDiagram>
+          <stateDiagramReference>SDA_OEEQCheckManT25</stateDiagramReference>
+        </equipmentTypeStateDiagram>
+      </stateDiagrams>
+      <timerOverrides>
+        <equipmentTypeTimerDefinitionOverride>
+          <timerId>TimerA</timerId>
+          <stateDiagramReference>SDA_OEEQCheckManT25</stateDiagramReference>
+          <warnDurationValue>1</warnDurationValue>
+          <maxDurationValue>300</maxDurationValue>
+          <maxDurationUnitName>sec</maxDurationUnitName>
+          <warnDurationUnitName>sec</warnDurationUnitName>
+          <overridingValues>false</overridingValues>
+        </equipmentTypeTimerDefinitionOverride>
+      </timerOverrides>
+      <assignedCounters/>
+      <wmsManaged>true</wmsManaged>
+      <equipmentClass>CONTAINER</equipmentClass>
+      <wmsLocationReference>LOCBLENDST</wmsLocationReference>
+      <extensions class="java.util.ArrayList"/>
+      <containerEquipmentExtension>
+        <uomReference>kg</uomReference>
+        <equipmentManaged>true</equipmentManaged>
+        <printOrderHuLabel>false</printOrderHuLabel>
+        <printSuLabel>false</printSuLabel>
+      </containerEquipmentExtension>
+      <ebrStockCreationIndependentOfPasxLocation>false</ebrStockCreationIndependentOfPasxLocation>
+      <ebrTakeoutIndependentOfPasxLocation>false</ebrTakeoutIndependentOfPasxLocation>
+      <cleaningRuleId>CONTEXT_BASED</cleaningRuleId>
+    </equipmentType>
+  </equipmentTypeList>
+</pasxExport>

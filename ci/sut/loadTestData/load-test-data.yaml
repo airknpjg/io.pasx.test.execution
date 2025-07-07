@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-test-data-job
+  namespace: fat
+spec:
+  template:
+    spec:
+      containers:
+      - name: load-test-data-job
+        image: postgres:17.0-alpine3.20
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PGPASSWORD
+          value: anyPassword
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          echo "Checking if script exists...";
+          ls -l /data;
+          echo "Running SQL script...";
+          psql -h postgres -U pasx -d postgres -f /data/insert_test_data.sql;
+        volumeMounts:
+        - name: sql-script
+          mountPath: /data
+      restartPolicy: Never
+      volumes:
+      - name: sql-script
+        configMap:
+          name: test-data-cm
+  backoffLimit: 1

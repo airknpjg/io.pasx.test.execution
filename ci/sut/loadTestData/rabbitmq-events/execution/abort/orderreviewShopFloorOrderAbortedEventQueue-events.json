@@ -1,0 +1,29 @@
+[
+  {
+    "payload_bytes": 1298,
+    "redelivered": true,
+    "exchange": "messages",
+    "routing_key": "v1.orderreviewShopFloorOrderAbortedEvent",
+    "message_count": 0,
+    "properties": {
+      "message_id": "fa2f02cf-2668-49f5-a781-e9ba4fe42db1",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.orderreviewShopFloorOrderAbortedEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "fa2f02cf-2668-49f5-a781-e9ba4fe42db1",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Lisbon",
+        "traceparent": "00-63a548af19ccbc59a0e20999b40b161f-963ce903cd52354b-01",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 4
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"abortedShopFloorOrder\" : {\n    \"orderId\" : \"VT000141\",\n    \"basicOperationId\" : \"BO1\"\n  },\n  \"abortTime\" : \"2025-03-20T09:31:37.009660614Z\",\n  \"canceledInstanceKeys\" : [ \"01JPHZWSWXTNDF30X80Z1NDMN5\" ],\n  \"loggedInUserId\" : \"101\",\n  \"loggedInUserName\" : \"User101\",\n  \"confirmationTime\" : \"2025-03-20T09:31:36.986333012Z\",\n  \"comment\" : \"123\",\n  \"signatureBase\" : {\n    \"signatureKey\" : \"5000018565\",\n    \"signatureEntityKey\" : 5001035373,\n    \"terminalId\" : \"AUTOEXEC\",\n    \"userId\" : \"102\",\n    \"userName\" : \"User102\",\n    \"loggedInUserId\" : \"101\",\n    \"loggedInUserName\" : \"User101\",\n    \"initiatingUserId\" : \"101\",\n    \"initiatingUserName\" : \"User101\",\n    \"signatureId\" : \"ExceptionConfirmationOrderExecutionWeb\",\n    \"signatureType\" : \"LOGGING\",\n    \"signDate\" : \"2025-03-20T09:31:36.820969Z\",\n    \"signDateISO8601\" : \"2025-03-20T09:31:36.820969Z\",\n    \"userComment\" : null,\n    \"signatureFailureText\" : \"\",\n    \"isVerification\" : false,\n    \"translatedAction\" : \"Abort Shop Floor Order\",\n    \"relatedObject\" : \"MO ID: VT000141\\nBO ID: BO1\\nException description: The Shop Floor Order will be aborted.\\n\",\n    \"authenticationSystem\" : null,\n    \"signatureStatus\" : \"SUCCESS\",\n    \"lastChange\" : \"2025-03-20T09:31:36.962101525Z\",\n    \"lastChangeISO8601\" : \"2025-03-20T09:31:36.962101525Z\"\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

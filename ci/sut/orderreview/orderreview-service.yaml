@@ -1,0 +1,193 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderreview-deployment
+  namespace: fat
+  labels:
+    app: orderreview-deployment
+spec:
+  selector:
+    matchLabels:
+      app: orderreview-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orderreview-service
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      containers:
+        -
+          name: orderreview-service-container
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.orderreview.service:main-latest
+          imagePullPolicy: Always
+          volumeMounts:
+            -
+              mountPath: /logs
+              name: logs
+          ports:
+            -
+              name: server
+              containerPort: 8080
+              protocol: TCP
+            -
+              name: monitoring
+              containerPort: 8081
+              protocol: TCP
+          #envFrom:
+          #  - configMapRef:
+          #      name: spring-database-config
+          env:
+            -
+              name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-service
+            -
+              name: SPRING_RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: username
+            -
+              name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: password
+            -
+              name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            -
+              name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            -
+              name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            -
+              name: SPRING_DATASOURCE_PASSWORD
+              value: anyPassword
+            -
+              name: PASX_MES_ORDERREVIEW_RABBITMQ_STOMP_RELAY-HOST
+              value: rabbitmq-service
+            -
+              name: PASX_MES_ORDERREVIEW_RABBITMQ_STOMP_LOGIN
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: username
+            -
+              name: PASX_MES_ORDERREVIEW_RABBITMQ_STOMP_PASSCODE
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: password
+            -
+              name: PASX_MES_ORDERREVIEW_RABBITMQ_STOMP_VIRTUAL-HOST
+              value: /
+            -
+              name: LOGGING_LEVEL_ROOT
+              value: INFO
+            -
+              name: SERVER_PORT
+              value: "8080"
+            -
+              name: MANAGEMENT_SERVER_PORT
+              value: "8081"
+            -
+              name: JAVA_TOOL_OPTIONS
+              value: "-Duser.timezone=Europe/Berlin -Duser.language=en -Duser.country=US -Djava.security.egd=file:/dev/./urandom -Dsecurerandom.source=file:/dev/./urandom -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dmanagement.security.enabled=false -Dmanagement.ssl.enabled=false -Dmanagement.server.ssl.enabled=false"
+            -
+              name: SERVER_SERVLET_CONTEXT_PATH
+              value: ""
+            -
+              name: PASX_MES_ORDERREVIEW_CENTRAL_BASE_URI
+              value: "http://${hostname}:8888/central"
+          securityContext:
+            runAsUser: 1001
+          livenessProbe:
+            httpGet:
+              path: /monitoring/health/liveness
+              port: 8081
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+          startupProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 300
+      restartPolicy: Always
+      securityContext:
+        fsGroup: 1001
+      volumes:
+        -
+          name: logs
+          emptyDir: { }
+  strategy:
+    type: Recreate
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orderreview-service
+  namespace: fat
+  labels:
+    app: orderreview-service
+spec:
+  ports:
+    -
+      name: server
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    -
+      name: monitoring
+      protocol: TCP
+      port: 8081
+      targetPort: 8081
+  selector:
+    app: orderreview-service
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orderreview-ingress
+  namespace: fat
+  labels:
+    app: orderreview-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    -
+      http:
+        paths:
+          -
+            path: /orderreview(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: orderreview-service
+                port:
+                  number: 8080
+          -
+            path: /orderreview-monitoring(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: orderreview-service
+                port:
+                  number: 8081

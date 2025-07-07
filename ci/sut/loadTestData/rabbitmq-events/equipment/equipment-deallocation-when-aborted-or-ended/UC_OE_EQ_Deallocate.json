@@ -1,0 +1,158 @@
+[
+  {
+    "payload_bytes": 637,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteOrderCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "693ee2a7-732b-4b9e-960d-139447bb3e69",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteOrderCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "693ee2a7-732b-4b9e-960d-139447bb3e69",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-188cad465efaf12f1998790322b8b978-b5bdabba2e8faf99-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000142\",\n  \"specificationExternalId\" : \"ESP/ESP/1743080261461-ES/BCONT2000/00000002/VT000142/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 1\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 2000l\",\n      \"targetEquipmentId\" : \"BC2000N01\",\n      \"targetEquipmentTypeId\" : \"BCONT2000\",\n      \"targetEquipmentName\" : \"Bio container 2000l 01\"\n    }\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 3094,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionStoreSpecificationCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "f17362ba-7272-4573-a016-9845cf1d4e8a",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionStoreSpecificationCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "f17362ba-7272-4573-a016-9845cf1d4e8a",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-188cad465efaf12f1998790322b8b978-b5bdabba2e8faf99-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"specification\" : {\n    \"id\" : \"ESP\",\n    \"shortDescription\" : \"1743080261461-ES\",\n    \"longDescription\" : \"ESP for BCONT2000: ESP - Equipment Specification\",\n    \"externalId\" : \"ESP/ESP/1743080261461-ES/BCONT2000/00000002/VT000142/Simulation\",\n    \"basicOperations\" : [ {\n      \"id\" : \"BO1\",\n      \"shortDescription\" : \"Basic Operation\",\n      \"longDescription\" : null,\n      \"firstStepId\" : \"BFEQCH1\",\n      \"lastStepId\" : \"BFEQCH2\",\n      \"steps\" : [ {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"BFEQCH1\",\n        \"contextId\" : \"BO1/BFEQCH1\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"executionMode\" : \"MANUAL\",\n        \"sortIndex\" : 1,\n        \"nextStepId\" : \"BFEQCH2\",\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"scan\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : true,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : null,\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT2000\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : null,\n          \"attributiveIdentificationFalseText\" : null\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      }, {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"BFEQCH2\",\n        \"contextId\" : \"BO1/BFEQCH2\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"executionMode\" : \"MANUAL\",\n        \"sortIndex\" : 2,\n        \"nextStepId\" : null,\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"scan\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : false,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : null,\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT2000\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : null,\n          \"attributiveIdentificationFalseText\" : null\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      } ]\n    } ]\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 1755,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteBasicFunctionCommand.EqCheckBf",
+    "message_count": 0,
+    "properties": {
+      "message_id": "d854ca53-9c38-478f-912a-628ae765ea29",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteBasicFunctionCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "d854ca53-9c38-478f-912a-628ae765ea29",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-188cad465efaf12f1998790322b8b978-ad77eb35d3ecffc5-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"basicFunctionInstanceKey\" : \"01JQBZN9VTE92XVHGVMEG0307Z\",\n  \"shopFloorOrderId\" : {\n    \"orderId\" : \"VT000142\",\n    \"basicOperationId\" : \"BO1\"\n  },\n  \"threadId\" : \"Order:VT000142#BO1\",\n  \"specificationData\" : {\n    \"id\" : \"BFEQCH1\",\n    \"contextId\" : \"BO1/BFEQCH1\",\n    \"shortDescription\" : \"EQ Check\",\n    \"longDescription\" : \"\",\n    \"type\" : \"EqCheckBf\",\n    \"parentPath\" : {\n      \"elements\" : [ {\n        \"id\" : \"BO1\",\n        \"shortDescription\" : \"Basic Operation\"\n      } ]\n    },\n    \"identificationRequired\" : false,\n    \"identificationUserGroupId\" : null,\n    \"verificationRequired\" : false,\n    \"verificationUserGroupId\" : null,\n    \"configuration\" : {\n      \"@type\" : \"RawJson\",\n      \"identificationType\" : \"scan\",\n      \"reuseEquipment\" : false,\n      \"equipmentPosition\" : 1,\n      \"automaticExecution\" : false,\n      \"stateCheck\" : \"no status check\",\n      \"implicitAllocation\" : true,\n      \"equipmentStates\" : [ ],\n      \"defaultEquipmentItem\" : {\n        \"equipmentId\" : null,\n        \"equipmentName\" : null,\n        \"equipmentTypeId\" : \"BCONT2000\",\n        \"equipmentTypeName\" : null\n      },\n      \"alternativeEquipmentAssignments\" : [ ],\n      \"attributiveIdentificationTrueText\" : null,\n      \"attributiveIdentificationFalseText\" : null\n    },\n    \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\"\n  },\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 2000l\",\n      \"targetEquipmentId\" : \"BC2000N01\",\n      \"targetEquipmentTypeId\" : \"BCONT2000\",\n      \"targetEquipmentName\" : \"Bio container 2000l 01\"\n    }\n  },\n  \"shopFloorOrderContext\" : {\n    \"data\" : { }\n  },\n  \"formulaData\" : {\n    \"formulaCarrierKey\" : \"3352\",\n    \"requiredFormulaResults\" : [ ],\n    \"formulas\" : [ ]\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 637,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteOrderCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "693ee2a7-732b-4b9e-960d-139447bb3e79",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteOrderCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "693ee2a7-732b-4b9e-960d-139447bb3e79",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "10-188cad465efaf12f1998790322b8b978-b5bdabba2e8faf99-02",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000143\",\n  \"specificationExternalId\" : \"ESP/ESP/1743080261462-ES/BCONT2000/00000002/VT000143/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 1\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 2000l\",\n      \"targetEquipmentId\" : \"BC2000N01\",\n      \"targetEquipmentTypeId\" : \"BCONT2000\",\n      \"targetEquipmentName\" : \"Bio container 2000l 01\"\n    }\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 3094,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionStoreSpecificationCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "f17362ba-7272-4573-a016-9845cf1d4e8b",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionStoreSpecificationCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "f17362ba-7272-4573-a016-9845cf1d4e8b",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "10-188cad465efaf12f1998790322b8b978-b5bdabba2e8faf99-02",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"specification\" : {\n    \"id\" : \"ESP\",\n    \"shortDescription\" : \"1743080261462-ES\",\n    \"longDescription\" : \"ESP for BCONT2000: ESP - Equipment Specification\",\n    \"externalId\" : \"ESP/ESP/1743080261462-ES/BCONT2000/00000002/VT000143/Simulation\",\n    \"basicOperations\" : [ {\n      \"id\" : \"BO1\",\n      \"shortDescription\" : \"Basic Operation\",\n      \"longDescription\" : null,\n      \"firstStepId\" : \"BFEQCH1\",\n      \"lastStepId\" : \"BFEQCH2\",\n      \"steps\" : [ {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"BFEQCH1\",\n        \"contextId\" : \"BO1/BFEQCH1\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"executionMode\" : \"MANUAL\",\n        \"sortIndex\" : 1,\n        \"nextStepId\" : \"BFEQCH2\",\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"scan\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : true,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : null,\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT2000\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : null,\n          \"attributiveIdentificationFalseText\" : null\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      }, {\n        \"@type\" : \"v1.executionBasicFunction\",\n        \"id\" : \"BFEQCH2\",\n        \"contextId\" : \"BO1/BFEQCH2\",\n        \"shortDescription\" : \"EQ Check\",\n        \"longDescription\" : null,\n        \"identificationRequired\" : false,\n        \"identificationUserGroupId\" : null,\n        \"verificationRequired\" : false,\n        \"verificationUserGroupId\" : null,\n        \"formulas\" : [ ],\n        \"executionMode\" : \"MANUAL\",\n        \"sortIndex\" : 2,\n        \"nextStepId\" : null,\n        \"type\" : \"EqCheckBf\",\n        \"configuration\" : {\n          \"@type\" : \"RawJson\",\n          \"identificationType\" : \"scan\",\n          \"reuseEquipment\" : false,\n          \"equipmentPosition\" : 1,\n          \"automaticExecution\" : false,\n          \"stateCheck\" : \"no status check\",\n          \"implicitAllocation\" : false,\n          \"equipmentStates\" : [ ],\n          \"defaultEquipmentItem\" : {\n            \"equipmentId\" : null,\n            \"equipmentName\" : null,\n            \"equipmentTypeId\" : \"BCONT2000\",\n            \"equipmentTypeName\" : null\n          },\n          \"alternativeEquipmentAssignments\" : [ ],\n          \"attributiveIdentificationTrueText\" : null,\n          \"attributiveIdentificationFalseText\" : null\n        },\n        \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\",\n        \"optional\" : false\n      } ]\n    } ]\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 1755,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteBasicFunctionCommand.EqCheckBf",
+    "message_count": 0,
+    "properties": {
+      "message_id": "d854ca53-9c38-478f-912a-628ae765ea39",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteBasicFunctionCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "d854ca53-9c38-478f-912a-628ae765ea39",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "10-188cad465efaf12f1998790322b8b978-ad77eb35d3ecffc5-02",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"basicFunctionInstanceKey\" : \"01JQBZN9VTE92XVHGVMEG0308Z\",\n  \"shopFloorOrderId\" : {\n    \"orderId\" : \"VT000143\",\n    \"basicOperationId\" : \"BO1\"\n  },\n  \"threadId\" : \"Order:VT000143#BO1\",\n  \"specificationData\" : {\n    \"id\" : \"BFEQCH1\",\n    \"contextId\" : \"BO1/BFEQCH1\",\n    \"shortDescription\" : \"EQ Check\",\n    \"longDescription\" : \"\",\n    \"type\" : \"EqCheckBf\",\n    \"parentPath\" : {\n      \"elements\" : [ {\n        \"id\" : \"BO1\",\n        \"shortDescription\" : \"Basic Operation\"\n      } ]\n    },\n    \"identificationRequired\" : false,\n    \"identificationUserGroupId\" : null,\n    \"verificationRequired\" : false,\n    \"verificationUserGroupId\" : null,\n    \"configuration\" : {\n      \"@type\" : \"RawJson\",\n      \"identificationType\" : \"scan\",\n      \"reuseEquipment\" : false,\n      \"equipmentPosition\" : 1,\n      \"automaticExecution\" : false,\n      \"stateCheck\" : \"no status check\",\n      \"implicitAllocation\" : true,\n      \"equipmentStates\" : [ ],\n      \"defaultEquipmentItem\" : {\n        \"equipmentId\" : null,\n        \"equipmentName\" : null,\n        \"equipmentTypeId\" : \"BCONT2000\",\n        \"equipmentTypeName\" : null\n      },\n      \"alternativeEquipmentAssignments\" : [ ],\n      \"attributiveIdentificationTrueText\" : null,\n      \"attributiveIdentificationFalseText\" : null\n    },\n    \"configurationType\" : \"v1.equipmentEqCheckBfConfiguration\"\n  },\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 2000l\",\n      \"targetEquipmentId\" : \"BC2000N01\",\n      \"targetEquipmentTypeId\" : \"BCONT2000\",\n      \"targetEquipmentName\" : \"Bio container 2000l 01\"\n    }\n  },\n  \"shopFloorOrderContext\" : {\n    \"data\" : { }\n  },\n  \"formulaData\" : {\n    \"formulaCarrierKey\" : \"3352\",\n    \"requiredFormulaResults\" : [ ],\n    \"formulas\" : [ ]\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

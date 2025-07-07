@@ -1,0 +1,620 @@
+<pasxExport>
+  <metadata>
+    <pasxVersion>PAS-X MES V3.4.0/00</pasxVersion>
+    <additionalVersions>,</additionalVersions>
+    <serviceId>com.werum.pasx.base.infrastructure,com.werum.pasx.central.service</serviceId>
+    <serviceVersion>atlantis-staging-latest,atlantis-staging-latest</serviceVersion>
+    <exportDate>2025-06-10T09:46:40.158780917Z</exportDate>
+    <exportUserId>88100</exportUserId>
+    <exportUserName>RaJ1</exportUserName>
+  </metadata>
+  <stateDiagramList>
+    <stateDiagram>
+      <stateDiagramId>SDA_OEEQCheckManT25</stateDiagramId>
+      <name>Cleaning after usage </name>
+      <statePackages>
+        <statePackage>
+          <mainState>Not cleaned major</mainState>
+          <initialState>true</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Allocated</targetState>
+              <transitionActivity>
+                <transitionActivityId>Allocating</transitionActivityId>
+                <name>Allocate</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>SU_CARRIER_CONTAINER</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>ALLOCATION_WITH_BF</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SCALE_USAGE_FOR_WEIGHING</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>HU_CONTAINER_USAGE_FOR_ORDER_HU</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>jDYzi17JRFK4pRJAtieFiA</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Malfunction</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction occurred</transitionActivityId>
+                <name>Equipment malfunctioned</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>X68ChHdfTHSfqHuRJSgCIA</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Major cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start major cleaning</transitionActivityId>
+                <name>Start major cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>S4sEqVVhTxuwi_vpYgd7bg</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Allocated</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Clean</targetState>
+              <transitionActivity>
+                <transitionActivityId>Deallocating Clean</transitionActivityId>
+                <name>Deallocating to clean</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>HyEGLKcVQLWFc1HZ9l8hpw</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Allocated</targetState>
+              <transitionActivity>
+                <transitionActivityId>Allocating</transitionActivityId>
+                <name>Allocate</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>SU_CARRIER_CONTAINER</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>ALLOCATION_WITH_BF</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SCALE_USAGE_FOR_WEIGHING</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>HU_CONTAINER_USAGE_FOR_ORDER_HU</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>oAM8wNxoTIKZX2ZvujxqVQ</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Malfunction</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction occurred</transitionActivityId>
+                <name>Equipment malfunctioned</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>3ioo1CT-TeuLUUcf3Oi4sg</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Not cleaned minor</targetState>
+              <transitionActivity>
+                <transitionActivityId>Deallocating Minor</transitionActivityId>
+                <name>Deallocating to not cleaned minor</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>DEALLOCATION_WITH_BF</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>END_SCALE_USAGE_FOR_WEIGHING</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SFO_FINISHED</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>END_CONTAINER_USAGE_FOR_ORDER_HU</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SFO_ABORTED</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>END_CONTAINER_USAGE_FOR_EMPTIED_ORDER_HU</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SU_REMOVED_CONTAINER</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>wC-V8jBoRriM6V47Lrilmg</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Not cleaned major</targetState>
+              <transitionActivity>
+                <transitionActivityId>Deallocating Major</transitionActivityId>
+                <name>Deallocating to not cleaned major</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>Vmp2S7DjSVGf5vGHQnzOnA</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Malfunction</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Allocated</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunct fixed EBR</transitionActivityId>
+                <name>Malfunction fixed (reallocation by MO)</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>hTerCOY-SwGe2o0wyobHKA</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Not cleaned major</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction fixed</transitionActivityId>
+                <name>Equipment malfunction fixed</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>eZL9UxrYQYK2BoJkQj720Q</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Major cleaning</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Clean</targetState>
+              <transitionActivity>
+                <transitionActivityId>End major cleaning</transitionActivityId>
+                <name>End major cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>true</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>psEwPzMASU-DIR2Yxkjz5Q</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Malfunction</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction occurred</transitionActivityId>
+                <name>Equipment malfunctioned</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>D5D7yL6oQTmhW_PaUTCeqQ</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Not cleaned minor</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Allocated</targetState>
+              <transitionActivity>
+                <transitionActivityId>Allocating</transitionActivityId>
+                <name>Allocate</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>SU_CARRIER_CONTAINER</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>ALLOCATION_WITH_BF</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SCALE_USAGE_FOR_WEIGHING</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>HU_CONTAINER_USAGE_FOR_ORDER_HU</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>nDljy45DSp2fqpSTNGoPOQ</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Malfunction</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction occurred</transitionActivityId>
+                <name>Equipment malfunctioned</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>Alue-gBhT1S_EMO9T9yP5w</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Major cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start major cleaning</transitionActivityId>
+                <name>Start major cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>AmXnRyBXTQyiW_6mPNeSXw</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Minor cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start minor cleaning</transitionActivityId>
+                <name>Start minor cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>3KdeqOgURLqqQg2YLt9NhQ</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Minor cleaning</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Clean</targetState>
+              <transitionActivity>
+                <transitionActivityId>End minor cleaning</transitionActivityId>
+                <name>End minor cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>7YAwnhiuRe6Jc956dO55-g</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Malfunction</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction occurred</transitionActivityId>
+                <name>Equipment malfunctioned</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>VuvGZlelT2az0HRE5qSnWg</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Not cleaned minor</targetState>
+              <transitionActivity>
+                <transitionActivityId>End minor cleaning2</transitionActivityId>
+                <name>Not cleaned minor</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>49-IbxZyTiq7pA9APDr9bA</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Not cleaned major</targetState>
+              <transitionActivity>
+                <transitionActivityId>End major cleaning3</transitionActivityId>
+                <name>Not cleaned major</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>TLJBkIZdTtO2A1xCVIIQnw</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Clean</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Allocated</targetState>
+              <transitionActivity>
+                <transitionActivityId>Allocating</transitionActivityId>
+                <name>Allocate</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>SU_CARRIER_CONTAINER</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>ALLOCATION_WITH_BF</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>SCALE_USAGE_FOR_WEIGHING</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>HU_CONTAINER_USAGE_FOR_ORDER_HU</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>JfA3OC3LTdaqo9i9Y_-V_Q</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Malfunction</targetState>
+              <transitionActivity>
+                <transitionActivityId>Malfunction occurred</transitionActivityId>
+                <name>Equipment malfunctioned</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>4FK9aZL5TYGWEglcDutyJQ</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Major cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start major cleaning</transitionActivityId>
+                <name>Start major cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>DQga3HPhQe-yNNZ3i7qOKw</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Minor cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start minor cleaning</transitionActivityId>
+                <name>Start minor cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>agErgnRqTWCywVSbPTuxEg</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Clean HT expired</targetState>
+              <transitionActivity>
+                <transitionActivityId>Hold time expires</transitionActivityId>
+                <name>Clean hold time expires</name>
+                <transitionTriggers/>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>WLoJJNSmSAeJRBepxX9aSQ</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+        <statePackage>
+          <mainState>Clean HT expired</mainState>
+          <initialState>false</initialState>
+          <stateTransitions>
+            <stateTransition>
+              <targetState>Major cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start major cleaning</transitionActivityId>
+                <name>Start major cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>0KI0wrgfRD6qY6R1FsMmsg</logicalId>
+            </stateTransition>
+            <stateTransition>
+              <targetState>Minor cleaning</targetState>
+              <transitionActivity>
+                <transitionActivityId>Start minor cleaning</transitionActivityId>
+                <name>Start minor cleaning</name>
+                <transitionTriggers>
+                  <transitionTrigger>
+                    <triggerReference>MANUAL_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                  <transitionTrigger>
+                    <triggerReference>BF_STATE_CHANGE</triggerReference>
+                  </transitionTrigger>
+                </transitionTriggers>
+                <transitionUserGroups/>
+                <resetMaterialContact>false</resetMaterialContact>
+              </transitionActivity>
+              <logicalId>MPqeh7IRTHKH22TSjy9VAw</logicalId>
+            </stateTransition>
+          </stateTransitions>
+        </statePackage>
+      </statePackages>
+      <timerDefinitions>
+        <timerDefinition>
+          <name>TimerA</name>
+          <timerDefinitionId>TimerA</timerDefinitionId>
+          <logicalId>NX30wcjDQO2azJrMeUGw9w</logicalId>
+          <warnDuration>
+            <value>1</value>
+            <uomReference>sec</uomReference>
+          </warnDuration>
+          <maxDuration>
+            <value>300</value>
+            <uomReference>sec</uomReference>
+          </maxDuration>
+          <startStateId>Clean</startStateId>
+          <timerStartTransitions>
+            <timerStartTransition>
+              <startTransitionId>End major cleaning</startTransitionId>
+            </timerStartTransition>
+          </timerStartTransitions>
+          <timerRetainingStates>
+            <timerRetainingState>
+              <stateId>Allocated</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Clean</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Clean HT expired</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Major cleaning</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Malfunction</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Minor cleaning</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Not cleaned major</stateId>
+            </timerRetainingState>
+            <timerRetainingState>
+              <stateId>Not cleaned minor</stateId>
+            </timerRetainingState>
+          </timerRetainingStates>
+        </timerDefinition>
+      </timerDefinitions>
+    </stateDiagram>
+  </stateDiagramList>
+</pasxExport>

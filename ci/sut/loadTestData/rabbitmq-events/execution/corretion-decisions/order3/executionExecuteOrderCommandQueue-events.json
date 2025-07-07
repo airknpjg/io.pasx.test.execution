@@ -1,0 +1,29 @@
+[
+  {
+    "payload_bytes": 621,
+    "redelivered": true,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteOrderCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "ee9d2a8f-25c4-40cc-a9ae-d0e7fdfe75c6_3",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteOrderCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "ee9d2a8f-25c4-40cc-a9ae-d0e7fdfe75c6_3",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-f342bc8497e5a9144fb8b317fd1ca386-4b7f24e634c299ef-01",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 1
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000128\",\n  \"specificationExternalId\" : \"ESP/ESP/1742919119992-ES/BC50/00000001/VT000128/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 3\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Bio container 50 ltr\",\n      \"targetEquipmentId\" : \"BC50N01\",\n      \"targetEquipmentTypeId\" : \"BC50\",\n      \"targetEquipmentName\" : \"Bio Container 50 l 01\"\n    }\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

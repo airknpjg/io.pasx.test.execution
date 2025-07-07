@@ -1,0 +1,29 @@
+[
+    {
+      "payload_bytes": 634,
+      "redelivered": false,
+      "exchange": "messages",
+      "routing_key": "v1.executionExecuteOrderCommand",
+      "message_count": 0,
+      "properties": {
+        "message_id": "9ee3e22d-29ee-41cc-a0b4-82f94a8c6b2c",
+        "priority": 0,
+        "delivery_mode": 2,
+        "headers": {
+          "Type": "v1.executionExecuteOrderCommand",
+          "languageTag": "en-US",
+          "spring_returned_message_correlation": "9ee3e22d-29ee-41cc-a0b4-82f94a8c6b2c",
+          "terminalId": "AUTOEXEC",
+          "timeZoneId": "Europe/Berlin",
+          "traceparent": "00-fd94521d31362030436196e036177dec-142ae3018269f20a-01",
+          "userId": "101",
+          "userName": "User101",
+          "x-delivery-count": 0
+        },
+        "content_encoding": "UTF-8",
+        "content_type": "application/json"
+      },
+      "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000132\",\n  \"specificationExternalId\" : \"ESP/ABaiForActivityValue/1742395740509-ABaiForActivityValu/CONT/00000001/VT000132/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 1\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container\",\n      \"targetEquipmentId\" : \"CONT01\",\n      \"targetEquipmentTypeId\" : \"CONT\",\n      \"targetEquipmentName\" : \"Container 01\"\n    }\n  }\n}",
+      "payload_encoding": "string"
+    }
+]

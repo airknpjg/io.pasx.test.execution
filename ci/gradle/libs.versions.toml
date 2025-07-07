@@ -1,0 +1,15 @@
+[versions]
+io-pasx-build = "3.5.3-20250409153013"
+junit-jupiter = "5.12.1"
+
+[libraries]
+pasx-build-plugins-npmservice = { module = "io.pasx.build.plugins.npm-service:io.pasx.build.plugins.npm-service.gradle.plugin", version.ref = "io-pasx-build" }
+pasx-build-plugins-i18n = { module = "io.pasx.build.plugins.i18n:io.pasx.build.plugins.i18n.gradle.plugin", version.ref = "io-pasx-build" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+
+[plugins]
+pasx-build-plugins-npmservice = { id = "io.pasx.build.plugins.npm-service", version.ref = "io-pasx-build" }
+io-pasx-build-plugins-sut = { id = "io.pasx.build.plugins.sut", version.ref = "io-pasx-build" }
+io-pasx-build-plugins-testreport = { id = "io.pasx.build.plugins.test-report", version.ref = "io-pasx-build" }
+io-pasx-build-plugins-jfrog = { id = "io.pasx.build.plugins.jfrog", version.ref = "io-pasx-build" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.1.20" }

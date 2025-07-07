@@ -1,0 +1,40 @@
+@import io.pasx.test.report.UseCase
+@import io.pasx.test.report.PQMDoorProperties
+@param useCases: List<UseCase>
+@param pqmDoorProperties: PQMDoorProperties
+<%-- Content --%>
+= Overview of FAT report
+
+== Test report for Test Specification: ${pqmDoorProperties.childTestPlan}
+
+[cols="15%,15%,10%,10%,10%,20%,20%"]
+|===
+| Use Case | Mitigation Action | Passed | Failed | Untested | Deviation | Test Acceptance
+!{
+     data class ReportInfo(var useCaseName: String,var mitigationActionNames: String, var passCount: Int, var failCount: Int, var unTestedCount: Int)
+}
+@for(useCase in useCases)
+    !{
+        val reportInfo = ReportInfo("","",-1,-1,-1)
+        reportInfo.useCaseName = useCase.name
+    }
+    @for(mitigationAction in useCase.mitigationActions)
+        !{
+            reportInfo.mitigationActionNames = mitigationAction.name.replace("\\((.*?)\\)".toRegex()) { matchResult -> "\\(${matchResult.groupValues[1]})" }
+            reportInfo.passCount = 0
+            reportInfo.failCount = 0
+            reportInfo.unTestedCount = 0
+            for (scenario in mitigationAction.scenarios) {
+                for (step in scenario.steps) {
+                    when (step.result.status) {
+                        "passed" -> reportInfo.passCount += 1
+                        "failed" -> reportInfo.failCount += 1
+                        else -> reportInfo.unTestedCount += 1
+                    }
+                }
+            }
+        }
+        | xref:${reportInfo.useCaseName}/index.adoc[${reportInfo.useCaseName}] | ${reportInfo.mitigationActionNames} | ${reportInfo.passCount} | ${reportInfo.failCount} | ${reportInfo.unTestedCount} |  |
+    @endfor
+@endfor
+|===

@@ -1,0 +1,145 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: equipment-service-deployment
+  namespace: fat
+  labels:
+    app: equipment-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: equipment-service
+  template:
+    metadata:
+      labels:
+        app: equipment-service
+    spec:
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      containers:
+        -
+          name: equipment
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.equipment.service:main-latest
+          imagePullPolicy: Always
+          env:
+            -
+              name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            -
+              name: COM_WERUM_PASX_PRINTING_DATABASE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            -
+              name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            -
+              name: SPRING_DATASOURCE_PASSWORD
+              value: anyPassword
+            -
+              name: SPRING_DATASOURCE_DRIVER-CLASS-NAME
+              value: org.postgresql.Driver
+            -
+              name: SPRING_JPA_DATABASE-PLATFORM
+              value: org.hibernate.dialect.PostgreSQLDialect
+            -
+              name: SPRING_DATASOURCE_HIKARI_CONNECTION-INIT-SQL
+              value: ""
+            -
+              name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            -
+              name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-service
+            -
+              name: SPRING_RABBITMQ_USERNAME
+              value: pasx
+            -
+              name: SPRING_RABBITMQ_PASSWORD
+              value: pasx
+            -
+              name: PASX_TASKBASEDEXECUTION_ENABLED
+              value: "true"
+            -
+              name: pasx.cors.enabled
+              value: "true"
+            -
+              name: JAVA_TOOL_OPTIONS
+              value: "-Duser.timezone=Europe/Berlin -Duser.language=en -Duser.country=US -Dcentral.allowLogonViaUi=true -Dfile.encoding=UTF8"
+            - 
+              name: PASX_MES_EQUIPMENT_EXTERNAL-URL_CENTRAL
+              value: http://central-service:8080/central
+          ports:
+            -
+              name: server
+              containerPort: 9110
+              protocol: TCP
+          resources:
+            requests:
+              memory: "1000M"
+              cpu: "1000m"
+            limits:
+              memory: "3000M"
+              cpu: "3000m"
+          livenessProbe:
+            httpGet:
+              port: 9350
+              path: /monitoring/health/liveness
+          readinessProbe:
+            httpGet:
+              port: 9350
+              path: /monitoring/health/readiness
+          startupProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 9350
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 300
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: equipment-service-service
+  namespace: fat
+  labels:
+    app: equipment-service-service
+spec:
+  ports:
+    -
+      name: server
+      protocol: TCP
+      port: 9110
+      targetPort: 9110
+#    -
+#      name: monitoring
+#      protocol: TCP
+#      port: 9350
+#      targetPort: 9350
+  selector:
+    app: equipment-service
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: equipment-service-ingress
+  namespace: fat
+  labels:
+    app: equipment-service-ingress
+spec:
+  rules:
+    -
+      http:
+        paths:
+          -
+            path: /equipment(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: equipment-service-service
+                port:
+                  number: 9110

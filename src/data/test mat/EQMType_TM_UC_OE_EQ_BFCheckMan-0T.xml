@@ -1,0 +1,58 @@
+<pasxExport>
+  <metadata>
+    <pasxVersion>PAS-X MES V3.4.0/00</pasxVersion>
+    <additionalVersions>,</additionalVersions>
+    <serviceId>com.werum.pasx.base.infrastructure,com.werum.pasx.central.service</serviceId>
+    <serviceVersion>atlantis-staging-latest,atlantis-staging-latest</serviceVersion>
+    <exportDate>2025-06-10T05:56:18.268137691Z</exportDate>
+    <exportUserId>88100</exportUserId>
+    <exportUserName>RaJ1</exportUserName>
+  </metadata>
+  <equipmentTypeList>
+    <equipmentType>
+      <equipmentTypeId>EQTA_OEEQCheckManT01</equipmentTypeId>
+      <name>Container</name>
+      <stateDiagrams>
+        <equipmentTypeStateDiagram>
+          <stateDiagramReference>Cleaning after usage</stateDiagramReference>
+        </equipmentTypeStateDiagram>
+        <equipmentTypeStateDiagram>
+          <stateDiagramReference>Assembly</stateDiagramReference>
+        </equipmentTypeStateDiagram>
+      </stateDiagrams>
+      <timerOverrides>
+        <equipmentTypeTimerDefinitionOverride>
+          <timerId>Clean HT Expires</timerId>
+          <stateDiagramReference>Cleaning after usage</stateDiagramReference>
+          <maxDurationValue>100</maxDurationValue>
+          <maxDurationUnitName>hr</maxDurationUnitName>
+          <warnDurationUnitName>hr</warnDurationUnitName>
+          <overridingValues>false</overridingValues>
+        </equipmentTypeTimerDefinitionOverride>
+      </timerOverrides>
+      <assignedCounters>
+        <equipmentTypeCounterDefinitionAssignment>
+          <counterDefinitionReference>Major cleaning</counterDefinitionReference>
+          <overridingValues>true</overridingValues>
+          <overwrittenByMaterialGroup>false</overwrittenByMaterialGroup>
+          <warnValue>0</warnValue>
+          <maxValue>1</maxValue>
+        </equipmentTypeCounterDefinitionAssignment>
+      </assignedCounters>
+      <wmsManaged>true</wmsManaged>
+      <equipmentClass>CONTAINER</equipmentClass>
+      <wmsLocationReference>LOCBLENDST</wmsLocationReference>
+      <extensions class="java.util.ArrayList"/>
+      <containerEquipmentExtension>
+        <defaultTare>100</defaultTare>
+        <uomReference>kg</uomReference>
+        <equipmentManaged>true</equipmentManaged>
+        <printOrderHuLabel>false</printOrderHuLabel>
+        <printSuLabel>false</printSuLabel>
+      </containerEquipmentExtension>
+      <ebrStockCreationIndependentOfPasxLocation>false</ebrStockCreationIndependentOfPasxLocation>
+      <ebrTakeoutIndependentOfPasxLocation>false</ebrTakeoutIndependentOfPasxLocation>
+      <cleaningRuleId>CONTEXT_BASED</cleaningRuleId>
+    </equipmentType>
+  </equipmentTypeList>
+</pasxExport>

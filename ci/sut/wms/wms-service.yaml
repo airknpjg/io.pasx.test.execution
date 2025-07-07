@@ -1,0 +1,187 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wms-service-deployment
+  namespace: fat
+  labels:
+    app: wms-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: wms
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wms
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      containers:
+        -
+          name: wms-service-container
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.wms.service:main-latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            -
+              mountPath: /logs
+              name: logs
+          ports:
+            -
+              name: server
+              containerPort: 8080
+              protocol: TCP
+            -
+              name: monitoring
+              containerPort: 8081
+              protocol: TCP
+            -
+              name: debugging
+              containerPort: 5005
+              protocol: TCP
+          resources:
+            requests:
+              memory: "1000M"
+              cpu: "1000m"
+            limits:
+              memory: "6000M"
+              cpu: "2000m"
+          env:
+            -
+              name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-service
+            -
+              name: SPRING_RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: username
+            -
+              name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: password
+            -
+              name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            -
+              name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            -
+              name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            -
+              name: SPRING_DATASOURCE_PASSWORD
+              value: pasx
+            -
+              name: LOGGING_LEVEL_ROOT
+              value: INFO
+            -
+              name: LOGGING_LEVEL_COM_WERUM_PASX_WMS
+              value: DEBUG
+            -
+              name: SERVER_PORT
+              value: "8080"
+            -
+              name: MANAGEMENT_SERVER_PORT
+              value: "8080"
+            -
+              name: JAVA_TOOL_OPTIONS
+              value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Duser.timezone=Europe/Berlin -Duser.language=en -Duser.country=US -Djava.security.egd=file:/dev/./urandom -Dsecurerandom.source=file:/dev/./urandom -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dmanagement.security.enabled=false -Dmanagement.ssl.enabled=false -Dmanagement.server.ssl.enabled=false"
+            -
+              name: PASX_MES_SHARED_RESTBACKENDSTARTER_CORSENABLED
+              value: "true"
+            -
+              name: MANAGEMENT_OTLP_METRICS_EXPORT_ENABLED
+              value: "true"
+            -
+              name: MANAGEMENT_TRACING_ENABLED
+              value: "true"
+            -
+              name: MANAGEMENT_TRACING_SAMPLING_PROBABILITY
+              value: "1.0"
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              value: "*"
+            - name: MANAGEMENT_ENDPOINT_INFO_ACCESS
+              value: "read_only"
+            -
+              name: PASX_MES_SHARED_SERVICE_BASE-URI
+              value: "http://${hostname}:8888/wms"
+          securityContext:
+            runAsUser: 1001
+          livenessProbe:
+            httpGet:
+              path: /wms/monitoring/health/liveness
+              port: 8080
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /wms/monitoring/health/readiness
+              port: 8080
+              scheme: HTTP
+          startupProbe:
+            httpGet:
+              path: /wms/monitoring/health/readiness
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            failureThreshold: 100
+      restartPolicy: Always
+      securityContext:
+        fsGroup: 1001
+      volumes:
+        -
+          name: logs
+          emptyDir: { }
+  strategy:
+    type: Recreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wms-service-service
+  namespace: fat
+  labels:
+    app: wms-service-service
+spec:
+  ports:
+    -
+      name: server
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    -
+      name: debugging
+      protocol: TCP
+      port: 5005
+      targetPort: 5005
+  selector:
+    app: wms
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wms-service-ingress
+  namespace: fat
+  labels:
+    app: wms-service-ingress
+spec:
+  rules:
+    -
+      http:
+        paths:
+          -
+            path: /wms(/|$)(.*)
+            pathType: Exact
+            backend:
+              service:
+                name: wms-service-service
+                port:
+                  number: 8080

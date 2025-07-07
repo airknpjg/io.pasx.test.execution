@@ -1,0 +1,35 @@
+<pasxExport>
+  <metadata>
+    <pasxVersion>PAS-X MES V3.4.0/00</pasxVersion>
+    <additionalVersions>,</additionalVersions>
+    <serviceId>com.werum.pasx.base.infrastructure,com.werum.pasx.central.service</serviceId>
+    <serviceVersion>atlantis-staging-latest,atlantis-staging-latest</serviceVersion>
+    <exportDate>2025-06-10T05:56:18.035793933Z</exportDate>
+    <exportUserId>88100</exportUserId>
+    <exportUserName>RaJ1</exportUserName>
+  </metadata>
+  <counterDefinitionList>
+    <counterDefinition>
+      <name>Major cleaning</name>
+      <description>Counter for batch changes for major cleaning</description>
+      <counterDefinitionId>Major cleaning</counterDefinitionId>
+      <warnValue>3</warnValue>
+      <maxValue>4</maxValue>
+      <counterPolicies>
+        <counterPolicy>
+          <name>Incr on batch change</name>
+          <description>Increment on batch change</description>
+          <stateDiagram>Cleaning after usage</stateDiagram>
+          <transitionActivityId>Allocating</transitionActivityId>
+          <counterAction>INCREMENT_ON_BATCH_CHANGE</counterAction>
+        </counterPolicy>
+        <counterPolicy>
+          <name>Reset on major clean</name>
+          <stateDiagram>Cleaning after usage</stateDiagram>
+          <transitionActivityId>End major cleaning</transitionActivityId>
+          <counterAction>RESET</counterAction>
+        </counterPolicy>
+      </counterPolicies>
+    </counterDefinition>
+  </counterDefinitionList>
+</pasxExport>

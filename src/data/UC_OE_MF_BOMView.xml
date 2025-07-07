@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?><com.werum.pasx.core.base.global.xmlexportimport.ExportImportObjectWrapperVO DataType="com.werum.pasx.spec.abstractions.mbr.MasterBatchRecord" PasxVersion="PAS-X undefined version - to be set by the system composition" id="1">
+    <deleteState>-1</deleteState>
+    <extensionConfiguration id="2"/>
+    <key>0</key>
+    <list id="3">
+        <com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO MBRVariant="10#MBR138147#MBR 138147#HB125#---" id="4" productionArea="PB01" storageUnit="kg">
+            <approvalWorkflowCollection class="VOCollection" id="5">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="6">
+                    <com.werum.pasx.core.components.approval.global.ApprovalWorkflowVO approvalworkflowid="BRR" approvalworkflowreleasabletype="com.werum.pasx.ebr.abstractions.ebrorderclosure.BatchRecordReport" approvalworkflowversion="00000001" id="7"/>
+                    <com.werum.pasx.core.components.approval.global.ApprovalWorkflowVO approvalworkflowid="MBR" approvalworkflowreleasabletype="com.werum.pasx.spec.abstractions.mbr.MasterBatchRecord" approvalworkflowversion="00000001" id="8"/>
+                    <com.werum.pasx.core.components.approval.global.ApprovalWorkflowVO approvalworkflowid="EBR" approvalworkflowreleasabletype="com.werum.pasx.ebr.abstractions.ebrcore.ElectronicBatchRecord" approvalworkflowversion="00000001" id="9"/>
+                </c>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>approvalWorkflowCollection</parentAspect>
+            </approvalWorkflowCollection>
+            <archiveStatus>11</archiveStatus>
+            <currentStatus>5000</currentStatus>
+            <customId>MBR138147</customId>
+            <deleteState>-1</deleteState>
+            <description>MBR 138147</description>
+            <documentListEntryCollection class="VOCollection" id="10">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="11"/>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>documentListEntryCollection</parentAspect>
+            </documentListEntryCollection>
+            <equipmentListPosCollection class="VOCollection" id="12">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="13"/>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>equipmentListPosCollection</parentAspect>
+            </equipmentListPosCollection>
+            <estimatedYield>1000.0</estimatedYield>
+            <isSimulationMbr>false</isSimulationMbr>
+            <isWebBasedExecution>true</isWebBasedExecution>
+            <key>5000425019</key>
+            <lastModified>2025-05-19T14:47:03.167030Z</lastModified>
+            <materialName>Headblue 125 mg bulk</materialName>
+            <materialNumber>HB125</materialNumber>
+            <maxBatchSize>0.0</maxBatchSize>
+            <minBatchSize>0.0</minBatchSize>
+            <numberOfUnits>0</numberOfUnits>
+            <origin>10</origin>
+            <originKey>5000425019</originKey>
+            <prodStepCollection class="VOCollection" id="14">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="15">
+                    <com.werum.pasx.spec.components.speccore.global.BasicOperationVO id="16">
+                        <active>true</active>
+                        <bOAlarmFilterGroupAssigmentCollection class="VOCollection" id="17">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="18"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>bOAlarmFilterGroupAssigmentCollection</parentAspect>
+                        </bOAlarmFilterGroupAssigmentCollection>
+                        <customId>BO1</customId>
+                        <deleteState>-1</deleteState>
+                        <description>Basic Operation</description>
+                        <equipmentListPosCollection class="VOCollection" id="19">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="20"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>equipmentListPosCollection</parentAspect>
+                        </equipmentListPosCollection>
+                        <erpPosition>0</erpPosition>
+                        <erpRelevant>false</erpRelevant>
+                        <hasSpecProps>false</hasSpecProps>
+                        <hasWorkflow>true</hasWorkflow>
+                        <isAutomaticCloseMode>false</isAutomaticCloseMode>
+                        <isAutomaticStartMode>false</isAutomaticStartMode>
+                        <isTabularExecutionMode>false</isTabularExecutionMode>
+                        <key>5000425299</key>
+                        <markerCollection class="VOCollection" id="21">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="22"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>markerCollection</parentAspect>
+                        </markerCollection>
+                        <materialInputCollection class="VOCollection" id="23">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="24">
+                                <com.werum.pasx.spec.components.materialflow.global.MaterialInputVO id="25" unit="kg">
+                                    <active>true</active>
+                                    <adjustmentFlag>true</adjustmentFlag>
+                                    <alternativeMaterialCollection class="VOCollection" id="26">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="27">
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialInputVO id="28" unit="kg">
+                                                <active>true</active>
+                                                <adjustmentFlag>true</adjustmentFlag>
+                                                <alternativeMaterialCollection class="VOCollection" id="29">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="30"/>
+                                                    <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="28"/>
+                                                    <parentAspect>alternativeMaterialCollection</parentAspect>
+                                                </alternativeMaterialCollection>
+                                                <batchChange>false</batchChange>
+                                                <checkQuantity>false</checkQuantity>
+                                                <compensationPercentage>0.0</compensationPercentage>
+                                                <deleteState>-1</deleteState>
+                                                <erpPosition>0</erpPosition>
+                                                <erpRelevant>false</erpRelevant>
+                                                <identification>false</identification>
+                                                <isAlternativeMaterial>true</isAlternativeMaterial>
+                                                <isConsiderOriginBatch>false</isConsiderOriginBatch>
+                                                <isReconciliationRelevant>false</isReconciliationRelevant>
+                                                <isTargetMaterialForCleaningRules>false</isTargetMaterialForCleaningRules>
+                                                <key>5000425366</key>
+                                                <markerCollection class="VOCollection" id="31">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="32"/>
+                                                    <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="28"/>
+                                                    <parentAspect>markerCollection</parentAspect>
+                                                </markerCollection>
+                                                <materialFlowType>5020</materialFlowType>
+                                                <materialIdentificationType>10</materialIdentificationType>
+                                                <materialInputManufacturingDate>19200</materialInputManufacturingDate>
+                                                <materialName>Sodium</materialName>
+                                                <materialNum>EX002</materialNum>
+                                                <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" id="33">Raw</materialUseType>
+                                                <optional>false</optional>
+                                                <orderPickingFlag>1181</orderPickingFlag>
+                                                <originKey>5000425366</originKey>
+                                                <position>3</position>
+                                                <potencyFactorFormula>Internal formula: 1.0</potencyFactorFormula>
+                                                <priority>1</priority>
+                                                <quantificationType>1832</quantificationType>
+                                                <scaleToZeroType>6192</scaleToZeroType>
+                                                <standardEfficiency>1.0</standardEfficiency>
+                                                <stockRelevant>true</stockRelevant>
+                                                <sts>0</sts>
+                                                <takeOutRestriction>5190</takeOutRestriction>
+                                                <targetAmount>1.0</targetAmount>
+                                                <taringType>6192</taringType>
+                                                <unit>61</unit>
+                                                <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialInputVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="25"/>
+                                        <parentAspect>alternativeMaterialCollection</parentAspect>
+                                    </alternativeMaterialCollection>
+                                    <batchChange>false</batchChange>
+                                    <checkQuantity>false</checkQuantity>
+                                    <compensationPercentage>0.0</compensationPercentage>
+                                    <deleteState>-1</deleteState>
+                                    <erpPosition>0</erpPosition>
+                                    <erpRelevant>false</erpRelevant>
+                                    <identification>false</identification>
+                                    <isAlternativeMaterial>false</isAlternativeMaterial>
+                                    <isConsiderOriginBatch>false</isConsiderOriginBatch>
+                                    <isReconciliationRelevant>false</isReconciliationRelevant>
+                                    <isTargetMaterialForCleaningRules>false</isTargetMaterialForCleaningRules>
+                                    <key>5000425356</key>
+                                    <markerCollection class="VOCollection" id="34">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="35"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="25"/>
+                                        <parentAspect>markerCollection</parentAspect>
+                                    </markerCollection>
+                                    <materialFlowType>5020</materialFlowType>
+                                    <materialIdentificationType>10</materialIdentificationType>
+                                    <materialInputManufacturingDate>19200</materialInputManufacturingDate>
+                                    <materialName>Cornstarch</materialName>
+                                    <materialNum>EX001</materialNum>
+                                    <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" reference="33"/>
+                                    <optional>true</optional>
+                                    <orderPickingFlag>1181</orderPickingFlag>
+                                    <originKey>5000425356</originKey>
+                                    <position>3</position>
+                                    <potencyFactorFormula>Internal formula: 1.0</potencyFactorFormula>
+                                    <priority>1</priority>
+                                    <quantificationType>1832</quantificationType>
+                                    <scaleToZeroType>6192</scaleToZeroType>
+                                    <standardEfficiency>1.0</standardEfficiency>
+                                    <stockRelevant>true</stockRelevant>
+                                    <sts>0</sts>
+                                    <takeOutRestriction>5190</takeOutRestriction>
+                                    <targetAmount>1.0</targetAmount>
+                                    <taringType>6192</taringType>
+                                    <unit>61</unit>
+                                    <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                </com.werum.pasx.spec.components.materialflow.global.MaterialInputVO>
+                                <com.werum.pasx.spec.components.materialflow.global.MaterialInputVO id="36" unit="kg">
+                                    <active>true</active>
+                                    <adjustmentFlag>true</adjustmentFlag>
+                                    <alternativeMaterialCollection class="VOCollection" id="37">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="38"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="36"/>
+                                        <parentAspect>alternativeMaterialCollection</parentAspect>
+                                    </alternativeMaterialCollection>
+                                    <batchChange>false</batchChange>
+                                    <checkQuantity>false</checkQuantity>
+                                    <compensationPercentage>0.0</compensationPercentage>
+                                    <deleteState>-1</deleteState>
+                                    <erpPosition>0</erpPosition>
+                                    <erpRelevant>false</erpRelevant>
+                                    <identification>false</identification>
+                                    <isAlternativeMaterial>false</isAlternativeMaterial>
+                                    <isConsiderOriginBatch>false</isConsiderOriginBatch>
+                                    <isReconciliationRelevant>false</isReconciliationRelevant>
+                                    <isTargetMaterialForCleaningRules>false</isTargetMaterialForCleaningRules>
+                                    <key>5000425420</key>
+                                    <markerCollection class="VOCollection" id="39">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="40"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="36"/>
+                                        <parentAspect>markerCollection</parentAspect>
+                                    </markerCollection>
+                                    <materialFlowType>5020</materialFlowType>
+                                    <materialIdentificationType>10</materialIdentificationType>
+                                    <materialInputManufacturingDate>19200</materialInputManufacturingDate>
+                                    <materialName>Salicylic acid</materialName>
+                                    <materialNum>AI001</materialNum>
+                                    <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" id="41">Active</materialUseType>
+                                    <optional>false</optional>
+                                    <orderPickingFlag>1181</orderPickingFlag>
+                                    <originKey>5000425420</originKey>
+                                    <position>1</position>
+                                    <potencyFactorFormula>Internal formula: 1.0</potencyFactorFormula>
+                                    <priority>1</priority>
+                                    <quantificationType>1832</quantificationType>
+                                    <scaleToZeroType>6192</scaleToZeroType>
+                                    <standardEfficiency>100.0</standardEfficiency>
+                                    <stockRelevant>true</stockRelevant>
+                                    <sts>0</sts>
+                                    <takeOutRestriction>5190</takeOutRestriction>
+                                    <targetAmount>100.0</targetAmount>
+                                    <taringType>6192</taringType>
+                                    <unit>61</unit>
+                                    <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                </com.werum.pasx.spec.components.materialflow.global.MaterialInputVO>
+                                <com.werum.pasx.spec.components.materialflow.global.MaterialInputVO id="42" unit="kg">
+                                    <active>true</active>
+                                    <adjustmentFlag>true</adjustmentFlag>
+                                    <alternativeMaterialCollection class="VOCollection" id="43">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="44"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="42"/>
+                                        <parentAspect>alternativeMaterialCollection</parentAspect>
+                                    </alternativeMaterialCollection>
+                                    <batchChange>false</batchChange>
+                                    <checkQuantity>false</checkQuantity>
+                                    <compensatedMaterialInput class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="36"/>
+                                    <compensationPercentage>100.0</compensationPercentage>
+                                    <deleteState>-1</deleteState>
+                                    <erpPosition>0</erpPosition>
+                                    <erpRelevant>false</erpRelevant>
+                                    <identification>false</identification>
+                                    <isAlternativeMaterial>false</isAlternativeMaterial>
+                                    <isConsiderOriginBatch>false</isConsiderOriginBatch>
+                                    <isReconciliationRelevant>false</isReconciliationRelevant>
+                                    <isTargetMaterialForCleaningRules>false</isTargetMaterialForCleaningRules>
+                                    <key>5000425661</key>
+                                    <markerCollection class="VOCollection" id="45">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="46"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="42"/>
+                                        <parentAspect>markerCollection</parentAspect>
+                                    </markerCollection>
+                                    <materialFlowType>5020</materialFlowType>
+                                    <materialIdentificationType>10</materialIdentificationType>
+                                    <materialInputManufacturingDate>19200</materialInputManufacturingDate>
+                                    <materialName>Glucose</materialName>
+                                    <materialNum>CM001</materialNum>
+                                    <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" id="47">Compensating</materialUseType>
+                                    <optional>false</optional>
+                                    <orderPickingFlag>1181</orderPickingFlag>
+                                    <originKey>5000425661</originKey>
+                                    <position>2</position>
+                                    <potencyFactorFormula>Internal formula: 1.0</potencyFactorFormula>
+                                    <priority>1</priority>
+                                    <quantificationType>1832</quantificationType>
+                                    <scaleToZeroType>6192</scaleToZeroType>
+                                    <standardEfficiency>1.0</standardEfficiency>
+                                    <stockRelevant>true</stockRelevant>
+                                    <sts>0</sts>
+                                    <takeOutRestriction>5190</takeOutRestriction>
+                                    <targetAmount>900.0</targetAmount>
+                                    <taringType>6192</taringType>
+                                    <unit>61</unit>
+                                    <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                </com.werum.pasx.spec.components.materialflow.global.MaterialInputVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>materialInputCollection</parentAspect>
+                        </materialInputCollection>
+                        <materialOutputCollection class="VOCollection" id="48">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="49">
+                                <com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO id="50" unit="kg" unitConversionAlternativeUnit="_null_">
+                                    <active>true</active>
+                                    <adjustmentFlag>false</adjustmentFlag>
+                                    <batchPurity>false</batchPurity>
+                                    <createNewBundle>false</createNewBundle>
+                                    <deleteState>-1</deleteState>
+                                    <erpPosition>0</erpPosition>
+                                    <erpRelevant>false</erpRelevant>
+                                    <extensionAspect10 class="boolean">true</extensionAspect10>
+                                    <handOver>false</handOver>
+                                    <holdingDateCalculation>7410</holdingDateCalculation>
+                                    <holdingDateCalculationSource>0</holdingDateCalculationSource>
+                                    <holdingDateImpact>-1</holdingDateImpact>
+                                    <holdingTime>0.0</holdingTime>
+                                    <holdingTimeUOM>-1</holdingTimeUOM>
+                                    <insideLabel>0</insideLabel>
+                                    <isReconciliationRelevant>false</isReconciliationRelevant>
+                                    <key>5000425664</key>
+                                    <materialFlowType>5021</materialFlowType>
+                                    <materialIdentificationType>10</materialIdentificationType>
+                                    <materialName>Headblue 125 mg bulk</materialName>
+                                    <materialNum>HB125</materialNum>
+                                    <materialOutputContainerGroupCollection class="VOCollection" id="51">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="52">
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputContainerGroupVO id="53">
+                                                <containerGroupId>Polybag</containerGroupId>
+                                                <defaultVariant>true</defaultVariant>
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425672</key>
+                                                <numUnits>1</numUnits>
+                                                <originKey>5000425672</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputContainerGroupVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO" reference="50"/>
+                                        <parentAspect>materialOutputContainerGroupCollection</parentAspect>
+                                    </materialOutputContainerGroupCollection>
+                                    <materialOutputPrintParameterizationValueCollection class="VOCollection" id="54">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="55">
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO id="56">
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425667</key>
+                                                <materialOutputPrintParameterization>200</materialOutputPrintParameterization>
+                                                <originKey>5000425667</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO>
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO id="57">
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425665</key>
+                                                <materialOutputPrintParameterization>100</materialOutputPrintParameterization>
+                                                <originKey>5000425665</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO>
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO id="58">
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425666</key>
+                                                <materialOutputPrintParameterization>500</materialOutputPrintParameterization>
+                                                <originKey>5000425666</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO" reference="50"/>
+                                        <parentAspect>materialOutputPrintParameterizationValueCollection</parentAspect>
+                                    </materialOutputPrintParameterizationValueCollection>
+                                    <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" reference="33"/>
+                                    <optional>false</optional>
+                                    <originKey>5000425664</originKey>
+                                    <position>1</position>
+                                    <printLabel>true</printLabel>
+                                    <quantificationType>1832</quantificationType>
+                                    <scaleToZeroType>6192</scaleToZeroType>
+                                    <sts>0</sts>
+                                    <targetAmount>1000.0</targetAmount>
+                                    <taringType>6192</taringType>
+                                    <unit>61</unit>
+                                    <unitConversionAlternativeUnit>-1</unitConversionAlternativeUnit>
+                                    <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                    <yieldRelevant>true</yieldRelevant>
+                                </com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>materialOutputCollection</parentAspect>
+                        </materialOutputCollection>
+                        <optional>false</optional>
+                        <originKey>5000425035</originKey>
+                        <prodStepCollection class="VOCollection" id="59">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="60">
+                                <com.werum.pasx.spec.components.speccore.global.CommonBFVO id="61">
+                                    <active>true</active>
+                                    <customId>CBF1</customId>
+                                    <deleteState>-1</deleteState>
+                                    <description>Common BF</description>
+                                    <hasSpecProps>true</hasSpecProps>
+                                    <hasWorkflow>false</hasWorkflow>
+                                    <isTabularExecutionMode>false</isTabularExecutionMode>
+                                    <key>5000425329</key>
+                                    <markerCollection class="VOCollection" id="62">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="63"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>markerCollection</parentAspect>
+                                    </markerCollection>
+                                    <materialInputCollection class="VOCollection" id="64">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="65"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>materialInputCollection</parentAspect>
+                                    </materialInputCollection>
+                                    <materialOutputCollection class="VOCollection" id="66">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="67"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>materialOutputCollection</parentAspect>
+                                    </materialOutputCollection>
+                                    <optional>false</optional>
+                                    <originKey>5000425036</originKey>
+                                    <prodStepCollection class="VOCollection" id="68">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="69"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>prodStepCollection</parentAspect>
+                                    </prodStepCollection>
+                                    <prodStepLinkCollection class="VOCollection" id="70">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="71"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>prodStepLinkCollection</parentAspect>
+                                    </prodStepLinkCollection>
+                                    <specPropCollection class="VOCollection" id="72">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="73">
+                                            <com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO id="74">
+                                                <acquisitionType>1732</acquisitionType>
+                                                <active>true</active>
+                                                <activityType>5272</activityType>
+                                                <criticality>9000</criticality>
+                                                <customId>ATT1</customId>
+                                                <cxDefinitionCollection class="VOCollection" id="75">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="76"/>
+                                                    <parent class="com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO" reference="74"/>
+                                                    <parentAspect>cxDefinitionCollection</parentAspect>
+                                                </cxDefinitionCollection>
+                                                <dataOrigin>10</dataOrigin>
+                                                <deleteState>-1</deleteState>
+                                                <description>ATT1</description>
+                                                <falseText>NOK</falseText>
+                                                <instructionCollection class="VOCollection" id="77">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="78"/>
+                                                    <parent class="com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO" reference="74"/>
+                                                    <parentAspect>instructionCollection</parentAspect>
+                                                </instructionCollection>
+                                                <key>5000425348</key>
+                                                <mandatory>true</mandatory>
+                                                <markerCollection class="VOCollection" id="79">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="80"/>
+                                                    <parent class="com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO" reference="74"/>
+                                                    <parentAspect>markerCollection</parentAspect>
+                                                </markerCollection>
+                                                <originKey>5000425348</originKey>
+                                                <position>1</position>
+                                                <sts>0</sts>
+                                                <trueText>OK</trueText>
+                                            </com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>specPropCollection</parentAspect>
+                                    </specPropCollection>
+                                    <stickyNoteCollection class="VOCollection" id="81">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="82"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                        <parentAspect>stickyNoteCollection</parentAspect>
+                                    </stickyNoteCollection>
+                                    <sts>0</sts>
+                                    <userIdentification>1000</userIdentification>
+                                    <verificationSignature>false</verificationSignature>
+                                    <x>74.0</x>
+                                    <y>118.0</y>
+                                </com.werum.pasx.spec.components.speccore.global.CommonBFVO>
+                                <com.werum.pasx.spec.components.speccore.global.EndStepVO id="83">
+                                    <customId>End</customId>
+                                    <deleteState>-1</deleteState>
+                                    <key>5000425328</key>
+                                    <originKey>5000425328</originKey>
+                                    <sts>0</sts>
+                                    <x>157.5</x>
+                                    <y>254.0</y>
+                                </com.werum.pasx.spec.components.speccore.global.EndStepVO>
+                                <com.werum.pasx.spec.components.speccore.global.StartStepVO id="84">
+                                    <customId>Start</customId>
+                                    <deleteState>-1</deleteState>
+                                    <key>5000425327</key>
+                                    <originKey>5000425327</originKey>
+                                    <sts>0</sts>
+                                    <x>157.5</x>
+                                    <y>31.0</y>
+                                </com.werum.pasx.spec.components.speccore.global.StartStepVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>prodStepCollection</parentAspect>
+                        </prodStepCollection>
+                        <prodStepLinkCollection class="VOCollection" id="85">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="86">
+                                <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="87">
+                                    <deleteState>-1</deleteState>
+                                    <key>5000425331</key>
+                                    <originKey>5000425032</originKey>
+                                    <sourcePortNo>3</sourcePortNo>
+                                    <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.StartStepVO" reference="84"/>
+                                    <sourceX>176.0</sourceX>
+                                    <sourceY>63.0</sourceY>
+                                    <sts>0</sts>
+                                    <targetPortNo>1</targetPortNo>
+                                    <targetProdStep class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                    <targetX>176.0</targetX>
+                                    <targetY>124.0</targetY>
+                                </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                                <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="88">
+                                    <deleteState>-1</deleteState>
+                                    <key>5000425332</key>
+                                    <originKey>5000425032</originKey>
+                                    <sourcePortNo>3</sourcePortNo>
+                                    <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="61"/>
+                                    <sourceX>176.0</sourceX>
+                                    <sourceY>196.0</sourceY>
+                                    <sts>0</sts>
+                                    <targetPortNo>1</targetPortNo>
+                                    <targetProdStep class="com.werum.pasx.spec.components.speccore.global.EndStepVO" reference="83"/>
+                                    <targetX>176.0</targetX>
+                                    <targetY>259.0</targetY>
+                                </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>prodStepLinkCollection</parentAspect>
+                        </prodStepLinkCollection>
+                        <productionUnitCollection class="VOCollection" id="89">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="90">
+                                <com.werum.pasx.core.components.equipmentmd.global.ProductionUnitVO id="91">
+                                    <deleteState>-1</deleteState>
+                                    <id>BLEND01</id>
+                                    <key>5000006634</key>
+                                    <sts>0</sts>
+                                </com.werum.pasx.core.components.equipmentmd.global.ProductionUnitVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>productionUnitCollection</parentAspect>
+                        </productionUnitCollection>
+                        <productionUnitGroupCollection class="VOCollection" id="92">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="93"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>productionUnitGroupCollection</parentAspect>
+                        </productionUnitGroupCollection>
+                        <specPropCollection class="VOCollection" id="94">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="95"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>specPropCollection</parentAspect>
+                        </specPropCollection>
+                        <startCondition>1502</startCondition>
+                        <stickyNoteCollection class="VOCollection" id="96">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="97"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                            <parentAspect>stickyNoteCollection</parentAspect>
+                        </stickyNoteCollection>
+                        <sts>0</sts>
+                        <userIdentification>1000</userIdentification>
+                        <verificationSignature>false</verificationSignature>
+                        <x>65.0</x>
+                        <y>118.0</y>
+                    </com.werum.pasx.spec.components.speccore.global.BasicOperationVO>
+                    <com.werum.pasx.spec.components.speccore.global.BasicOperationVO id="98">
+                        <active>true</active>
+                        <bOAlarmFilterGroupAssigmentCollection class="VOCollection" id="99">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="100"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>bOAlarmFilterGroupAssigmentCollection</parentAspect>
+                        </bOAlarmFilterGroupAssigmentCollection>
+                        <customId>BO2</customId>
+                        <deleteState>-1</deleteState>
+                        <description>Basic Operation</description>
+                        <equipmentListPosCollection class="VOCollection" id="101">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="102"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>equipmentListPosCollection</parentAspect>
+                        </equipmentListPosCollection>
+                        <erpPosition>0</erpPosition>
+                        <erpRelevant>false</erpRelevant>
+                        <hasSpecProps>false</hasSpecProps>
+                        <hasWorkflow>true</hasWorkflow>
+                        <isAutomaticCloseMode>false</isAutomaticCloseMode>
+                        <isAutomaticStartMode>false</isAutomaticStartMode>
+                        <isTabularExecutionMode>false</isTabularExecutionMode>
+                        <key>5000425301</key>
+                        <markerCollection class="VOCollection" id="103">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="104"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>markerCollection</parentAspect>
+                        </markerCollection>
+                        <materialInputCollection class="VOCollection" id="105">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="106">
+                                <com.werum.pasx.spec.components.materialflow.global.MaterialInputVO id="107" unit="kg">
+                                    <active>true</active>
+                                    <adjustmentFlag>false</adjustmentFlag>
+                                    <alternativeMaterialCollection class="VOCollection" id="108">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="109"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="107"/>
+                                        <parentAspect>alternativeMaterialCollection</parentAspect>
+                                    </alternativeMaterialCollection>
+                                    <batchChange>false</batchChange>
+                                    <checkQuantity>false</checkQuantity>
+                                    <compensationPercentage>0.0</compensationPercentage>
+                                    <deleteState>-1</deleteState>
+                                    <erpPosition>0</erpPosition>
+                                    <erpRelevant>false</erpRelevant>
+                                    <identification>false</identification>
+                                    <isAlternativeMaterial>false</isAlternativeMaterial>
+                                    <isConsiderOriginBatch>false</isConsiderOriginBatch>
+                                    <isReconciliationRelevant>false</isReconciliationRelevant>
+                                    <isTargetMaterialForCleaningRules>false</isTargetMaterialForCleaningRules>
+                                    <key>5000425821</key>
+                                    <markerCollection class="VOCollection" id="110">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="111"/>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialInputVO" reference="107"/>
+                                        <parentAspect>markerCollection</parentAspect>
+                                    </markerCollection>
+                                    <materialFlowType>5021</materialFlowType>
+                                    <materialIdentificationType>10</materialIdentificationType>
+                                    <materialInputManufacturingDate>19200</materialInputManufacturingDate>
+                                    <materialName>Headblue 125 mg bulk</materialName>
+                                    <materialNum>HB125</materialNum>
+                                    <materialOriginMaterialOutput class="com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO" reference="50"/>
+                                    <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" reference="33"/>
+                                    <optional>false</optional>
+                                    <orderPickingFlag>1181</orderPickingFlag>
+                                    <originKey>5000425821</originKey>
+                                    <position>21</position>
+                                    <potencyFactorFormula>Internal formula: 1.0</potencyFactorFormula>
+                                    <priority>1</priority>
+                                    <quantificationType>1832</quantificationType>
+                                    <scaleToZeroType>6192</scaleToZeroType>
+                                    <standardEfficiency>1.0</standardEfficiency>
+                                    <stockRelevant>true</stockRelevant>
+                                    <sts>0</sts>
+                                    <takeOutRestriction>5190</takeOutRestriction>
+                                    <targetAmount>1000.0</targetAmount>
+                                    <taringType>6192</taringType>
+                                    <unit>61</unit>
+                                    <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                </com.werum.pasx.spec.components.materialflow.global.MaterialInputVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>materialInputCollection</parentAspect>
+                        </materialInputCollection>
+                        <materialOutputCollection class="VOCollection" id="112">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="113">
+                                <com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO id="114" unit="kg" unitConversionAlternativeUnit="_null_">
+                                    <active>true</active>
+                                    <adjustmentFlag>false</adjustmentFlag>
+                                    <batchPurity>false</batchPurity>
+                                    <createNewBundle>false</createNewBundle>
+                                    <deleteState>-1</deleteState>
+                                    <erpPosition>0</erpPosition>
+                                    <erpRelevant>false</erpRelevant>
+                                    <extensionAspect10 class="boolean">true</extensionAspect10>
+                                    <handOver>false</handOver>
+                                    <holdingDateCalculation>7410</holdingDateCalculation>
+                                    <holdingDateCalculationSource>0</holdingDateCalculationSource>
+                                    <holdingDateImpact>-1</holdingDateImpact>
+                                    <holdingTime>0.0</holdingTime>
+                                    <holdingTimeUOM>-1</holdingTimeUOM>
+                                    <insideLabel>0</insideLabel>
+                                    <isReconciliationRelevant>false</isReconciliationRelevant>
+                                    <key>5000425855</key>
+                                    <materialFlowType>5020</materialFlowType>
+                                    <materialIdentificationType>10</materialIdentificationType>
+                                    <materialName>Headblue 125 mg bulk</materialName>
+                                    <materialNum>HB125</materialNum>
+                                    <materialOutputContainerGroupCollection class="VOCollection" id="115">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="116">
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputContainerGroupVO id="117">
+                                                <containerGroupId>Polybag</containerGroupId>
+                                                <defaultVariant>true</defaultVariant>
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425864</key>
+                                                <numUnits>1</numUnits>
+                                                <originKey>5000425864</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputContainerGroupVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO" reference="114"/>
+                                        <parentAspect>materialOutputContainerGroupCollection</parentAspect>
+                                    </materialOutputContainerGroupCollection>
+                                    <materialOutputPrintParameterizationValueCollection class="VOCollection" id="118">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="119">
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO id="120">
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425856</key>
+                                                <materialOutputPrintParameterization>100</materialOutputPrintParameterization>
+                                                <originKey>5000425856</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO>
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO id="121">
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425857</key>
+                                                <materialOutputPrintParameterization>500</materialOutputPrintParameterization>
+                                                <originKey>5000425857</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO>
+                                            <com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO id="122">
+                                                <deleteState>-1</deleteState>
+                                                <key>5000425858</key>
+                                                <materialOutputPrintParameterization>200</materialOutputPrintParameterization>
+                                                <originKey>5000425858</originKey>
+                                                <sts>0</sts>
+                                            </com.werum.pasx.spec.components.materialflow.global.MaterialOutputPrintParameterizationValueVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO" reference="114"/>
+                                        <parentAspect>materialOutputPrintParameterizationValueCollection</parentAspect>
+                                    </materialOutputPrintParameterizationValueCollection>
+                                    <materialUseType class="com.werum.pasx.core.components.materialmd.global.MaterialUseTypeVO" reference="33"/>
+                                    <optional>false</optional>
+                                    <originKey>5000425855</originKey>
+                                    <position>21</position>
+                                    <printLabel>true</printLabel>
+                                    <quantificationType>1832</quantificationType>
+                                    <scaleToZeroType>6192</scaleToZeroType>
+                                    <sts>0</sts>
+                                    <targetAmount>1000.0</targetAmount>
+                                    <taringType>6192</taringType>
+                                    <unit>61</unit>
+                                    <unitConversionAlternativeUnit>-1</unitConversionAlternativeUnit>
+                                    <weighingTolerancePercent>0.0</weighingTolerancePercent>
+                                    <yieldRelevant>true</yieldRelevant>
+                                </com.werum.pasx.spec.components.materialflow.global.MaterialOutputVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>materialOutputCollection</parentAspect>
+                        </materialOutputCollection>
+                        <optional>false</optional>
+                        <originKey>5000425035</originKey>
+                        <prodStepCollection class="VOCollection" id="123">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="124">
+                                <com.werum.pasx.spec.components.speccore.global.EndStepVO id="125">
+                                    <customId>End</customId>
+                                    <deleteState>-1</deleteState>
+                                    <key>5000426408</key>
+                                    <originKey>5000426408</originKey>
+                                    <sts>0</sts>
+                                    <x>155.5</x>
+                                    <y>254.0</y>
+                                </com.werum.pasx.spec.components.speccore.global.EndStepVO>
+                                <com.werum.pasx.spec.components.speccore.global.CommonBFVO id="126">
+                                    <active>true</active>
+                                    <customId>CBF1</customId>
+                                    <deleteState>-1</deleteState>
+                                    <description>Common BF</description>
+                                    <hasSpecProps>true</hasSpecProps>
+                                    <hasWorkflow>false</hasWorkflow>
+                                    <isTabularExecutionMode>false</isTabularExecutionMode>
+                                    <key>5000426409</key>
+                                    <markerCollection class="VOCollection" id="127">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="128"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>markerCollection</parentAspect>
+                                    </markerCollection>
+                                    <materialInputCollection class="VOCollection" id="129">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="130"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>materialInputCollection</parentAspect>
+                                    </materialInputCollection>
+                                    <materialOutputCollection class="VOCollection" id="131">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="132"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>materialOutputCollection</parentAspect>
+                                    </materialOutputCollection>
+                                    <optional>false</optional>
+                                    <originKey>5000425036</originKey>
+                                    <prodStepCollection class="VOCollection" id="133">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="134"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>prodStepCollection</parentAspect>
+                                    </prodStepCollection>
+                                    <prodStepLinkCollection class="VOCollection" id="135">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="136"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>prodStepLinkCollection</parentAspect>
+                                    </prodStepLinkCollection>
+                                    <specPropCollection class="VOCollection" id="137">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="138">
+                                            <com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO id="139">
+                                                <acquisitionType>1732</acquisitionType>
+                                                <active>true</active>
+                                                <activityType>5272</activityType>
+                                                <criticality>9000</criticality>
+                                                <customId>ATT1</customId>
+                                                <cxDefinitionCollection class="VOCollection" id="140">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="141"/>
+                                                    <parent class="com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO" reference="139"/>
+                                                    <parentAspect>cxDefinitionCollection</parentAspect>
+                                                </cxDefinitionCollection>
+                                                <dataOrigin>10</dataOrigin>
+                                                <deleteState>-1</deleteState>
+                                                <description>ATT1</description>
+                                                <falseText>NOK</falseText>
+                                                <instructionCollection class="VOCollection" id="142">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="143"/>
+                                                    <parent class="com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO" reference="139"/>
+                                                    <parentAspect>instructionCollection</parentAspect>
+                                                </instructionCollection>
+                                                <key>5000426416</key>
+                                                <mandatory>true</mandatory>
+                                                <markerCollection class="VOCollection" id="144">
+                                                    <aspectString>VOCollection</aspectString>
+                                                    <c class="set" id="145"/>
+                                                    <parent class="com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO" reference="139"/>
+                                                    <parentAspect>markerCollection</parentAspect>
+                                                </markerCollection>
+                                                <originKey>5000426416</originKey>
+                                                <position>1</position>
+                                                <sts>0</sts>
+                                                <trueText>OK</trueText>
+                                            </com.werum.pasx.spec.components.speccore.global.AttributiveSpecPropVO>
+                                        </c>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>specPropCollection</parentAspect>
+                                    </specPropCollection>
+                                    <stickyNoteCollection class="VOCollection" id="146">
+                                        <aspectString>VOCollection</aspectString>
+                                        <c class="set" id="147"/>
+                                        <parent class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                        <parentAspect>stickyNoteCollection</parentAspect>
+                                    </stickyNoteCollection>
+                                    <sts>0</sts>
+                                    <userIdentification>1000</userIdentification>
+                                    <verificationSignature>false</verificationSignature>
+                                    <x>72.0</x>
+                                    <y>118.0</y>
+                                </com.werum.pasx.spec.components.speccore.global.CommonBFVO>
+                                <com.werum.pasx.spec.components.speccore.global.StartStepVO id="148">
+                                    <customId>Start</customId>
+                                    <deleteState>-1</deleteState>
+                                    <key>5000426407</key>
+                                    <originKey>5000426407</originKey>
+                                    <sts>0</sts>
+                                    <x>155.5</x>
+                                    <y>31.0</y>
+                                </com.werum.pasx.spec.components.speccore.global.StartStepVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>prodStepCollection</parentAspect>
+                        </prodStepCollection>
+                        <prodStepLinkCollection class="VOCollection" id="149">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="150">
+                                <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="151">
+                                    <deleteState>-1</deleteState>
+                                    <key>5000426412</key>
+                                    <originKey>5000425032</originKey>
+                                    <sourcePortNo>3</sourcePortNo>
+                                    <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                    <sourceX>174.0</sourceX>
+                                    <sourceY>196.0</sourceY>
+                                    <sts>0</sts>
+                                    <targetPortNo>1</targetPortNo>
+                                    <targetProdStep class="com.werum.pasx.spec.components.speccore.global.EndStepVO" reference="125"/>
+                                    <targetX>174.0</targetX>
+                                    <targetY>259.0</targetY>
+                                </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                                <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="152">
+                                    <deleteState>-1</deleteState>
+                                    <key>5000426411</key>
+                                    <originKey>5000425032</originKey>
+                                    <sourcePortNo>3</sourcePortNo>
+                                    <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.StartStepVO" reference="148"/>
+                                    <sourceX>174.0</sourceX>
+                                    <sourceY>63.0</sourceY>
+                                    <sts>0</sts>
+                                    <targetPortNo>1</targetPortNo>
+                                    <targetProdStep class="com.werum.pasx.spec.components.speccore.global.CommonBFVO" reference="126"/>
+                                    <targetX>174.0</targetX>
+                                    <targetY>124.0</targetY>
+                                </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>prodStepLinkCollection</parentAspect>
+                        </prodStepLinkCollection>
+                        <productionUnitCollection class="VOCollection" id="153">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="154">
+                                <com.werum.pasx.core.components.equipmentmd.global.ProductionUnitVO reference="91"/>
+                            </c>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>productionUnitCollection</parentAspect>
+                        </productionUnitCollection>
+                        <productionUnitGroupCollection class="VOCollection" id="155">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="156"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>productionUnitGroupCollection</parentAspect>
+                        </productionUnitGroupCollection>
+                        <specPropCollection class="VOCollection" id="157">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="158"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>specPropCollection</parentAspect>
+                        </specPropCollection>
+                        <startCondition>1502</startCondition>
+                        <stickyNoteCollection class="VOCollection" id="159">
+                            <aspectString>VOCollection</aspectString>
+                            <c class="set" id="160"/>
+                            <parent class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                            <parentAspect>stickyNoteCollection</parentAspect>
+                        </stickyNoteCollection>
+                        <sts>0</sts>
+                        <userIdentification>1000</userIdentification>
+                        <verificationSignature>false</verificationSignature>
+                        <x>65.0</x>
+                        <y>254.0</y>
+                    </com.werum.pasx.spec.components.speccore.global.BasicOperationVO>
+                    <com.werum.pasx.spec.components.speccore.global.EndStepVO id="161">
+                        <customId>End</customId>
+                        <deleteState>-1</deleteState>
+                        <key>5000425298</key>
+                        <originKey>5000425298</originKey>
+                        <sts>0</sts>
+                        <x>148.5</x>
+                        <y>390.0</y>
+                    </com.werum.pasx.spec.components.speccore.global.EndStepVO>
+                    <com.werum.pasx.spec.components.speccore.global.StartStepVO id="162">
+                        <customId>Start</customId>
+                        <deleteState>-1</deleteState>
+                        <key>5000425297</key>
+                        <originKey>5000425297</originKey>
+                        <sts>0</sts>
+                        <x>148.5</x>
+                        <y>31.0</y>
+                    </com.werum.pasx.spec.components.speccore.global.StartStepVO>
+                </c>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>prodStepCollection</parentAspect>
+            </prodStepCollection>
+            <prodStepLinkCollection class="VOCollection" id="163">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="164">
+                    <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="165">
+                        <deleteState>-1</deleteState>
+                        <key>5000425304</key>
+                        <originKey>5000425032</originKey>
+                        <sourcePortNo>3</sourcePortNo>
+                        <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                        <sourceX>167.0</sourceX>
+                        <sourceY>196.0</sourceY>
+                        <sts>0</sts>
+                        <targetPortNo>1</targetPortNo>
+                        <targetProdStep class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                        <targetX>167.0</targetX>
+                        <targetY>260.0</targetY>
+                    </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                    <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="166">
+                        <deleteState>-1</deleteState>
+                        <key>5000425303</key>
+                        <originKey>5000425032</originKey>
+                        <sourcePortNo>3</sourcePortNo>
+                        <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.StartStepVO" reference="162"/>
+                        <sourceX>167.0</sourceX>
+                        <sourceY>63.0</sourceY>
+                        <sts>0</sts>
+                        <targetPortNo>1</targetPortNo>
+                        <targetProdStep class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="16"/>
+                        <targetX>167.0</targetX>
+                        <targetY>124.0</targetY>
+                    </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                    <com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO id="167">
+                        <deleteState>-1</deleteState>
+                        <key>5000425305</key>
+                        <originKey>5000425032</originKey>
+                        <sourcePortNo>3</sourcePortNo>
+                        <sourceProdStep class="com.werum.pasx.spec.components.speccore.global.BasicOperationVO" reference="98"/>
+                        <sourceX>167.0</sourceX>
+                        <sourceY>332.0</sourceY>
+                        <sts>0</sts>
+                        <targetPortNo>1</targetPortNo>
+                        <targetProdStep class="com.werum.pasx.spec.components.speccore.global.EndStepVO" reference="161"/>
+                        <targetX>167.0</targetX>
+                        <targetY>395.0</targetY>
+                    </com.werum.pasx.spec.components.speccore.global.ProdStepLinkVO>
+                </c>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>prodStepLinkCollection</parentAspect>
+            </prodStepLinkCollection>
+            <productionArea>1631</productionArea>
+            <productionType>10</productionType>
+            <releaseSignatureCollection class="VOCollection" id="168">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="169"/>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>releaseSignatureCollection</parentAspect>
+            </releaseSignatureCollection>
+            <specificationType>10</specificationType>
+            <standardBatchSize>1000.0</standardBatchSize>
+            <stickyNoteCollection class="VOCollection" id="170">
+                <aspectString>VOCollection</aspectString>
+                <c class="set" id="171"/>
+                <parent class="com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO" reference="4"/>
+                <parentAspect>stickyNoteCollection</parentAspect>
+            </stickyNoteCollection>
+            <storageUnit>61</storageUnit>
+            <sts>0</sts>
+            <versionId>00000001</versionId>
+        </com.werum.pasx.spec.components.mbr.global.MasterBatchRecordVO>
+    </list>
+    <metadata id="172">
+        <fileVerificationHash>1136107336</fileVerificationHash>
+        <additionalVersions/>
+        <exportDate>2025-05-19T15:06:16.591006086Z</exportDate>
+        <exportUserId>1</exportUserId>
+        <exportUserName>@@InitialUser</exportUserName>
+        <pasxVersion>PAS-X undefined version - to be set by the system composition</pasxVersion>
+        <serviceId>com.werum.pasx.base.infrastructure,com.werum.pasx.central.service</serviceId>
+        <serviceVersion>163.0-20250518-2308,163.0-20250518-2308</serviceVersion>
+    </metadata>
+    <sts>1</sts>
+</com.werum.pasx.core.base.global.xmlexportimport.ExportImportObjectWrapperVO>

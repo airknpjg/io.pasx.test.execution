@@ -1,0 +1,29 @@
+[
+    {
+      "payload_bytes": 1689,
+      "redelivered": false,
+      "exchange": "messages",
+      "routing_key": "v2.mbrMasterBatchRecordEvent",
+      "message_count": 0,
+      "properties": {
+        "message_id": "d67c2ce8-afbd-4674-82ce-15dfb9f51219",
+        "priority": 0,
+        "delivery_mode": 2,
+        "headers": {
+          "Type": "v2.mbrMasterBatchRecordEvent",
+          "languageTag": "en-US",
+          "spring_returned_message_correlation": "d67c2ce8-afbd-4674-82ce-15dfb9f51219",
+          "terminalId": "G32LTWP3WJ",
+          "timeZoneId": "Europe/Berlin",
+          "traceparent": "00-803216b47dfd168f1d7cf5da8a96378a-86060cd6506c2565-01",
+          "userId": "101",
+          "userName": "User101",
+          "x-delivery-count": 0
+        },
+        "content_encoding": "UTF-8",
+        "content_type": "application/json"
+      },
+      "payload": "{\n  \"extensions\" : [ ],\n  \"mbrKey\" : 5000439918,\n  \"mbrId\" : \"ABaiForActivityValue\",\n  \"mbrVersionNumber\" : \"00000002\",\n  \"description\" : \"1742902815459-ABaiForActivityValu\",\n  \"currentStatus\" : \"draft\",\n  \"currentStatusTranslated\" : \"Draft\",\n  \"archiveStatus\" : \"notArchived\",\n  \"archiveStatusTranslated\" : \"Not archived\",\n  \"archiveDateTimestampISO8601\" : null,\n  \"longDescription\" : \"ESP for CONT: ABaiForActivityValue - ABaiForActivityValue\",\n  \"specificationType\" : \"ESP\",\n  \"specificationTypeTranslated\" : \"Equipment Specification\",\n  \"productionType\" : \"experiment\",\n  \"productionTypeTranslated\" : \"Experiment\",\n  \"erpProductionVersion\" : null,\n  \"targetMaterialId\" : null,\n  \"targetMaterialName\" : null,\n  \"standardBatchSize\" : 0.0,\n  \"estimatedYield\" : 0.0,\n  \"numberOfUnits\" : 0,\n  \"minBatchSize\" : 0.0,\n  \"maxBatchSize\" : 0.0,\n  \"uomId\" : null,\n  \"uomName\" : null,\n  \"equipmentTypeId\" : \"CONT\",\n  \"equipmentTypeName\" : \"Container\",\n  \"validFromDateISO8601\" : null,\n  \"validToDateISO8601\" : null,\n  \"taskBasedExecution\" : true,\n  \"webBasedExecution\" : true,\n  \"specificationExternalId\" : \"ESP/ABaiForActivityValue/1742902815459-ABaiForActivityValu/CONT/00000002/VT000132/Simulation\",\n  \"costCenterId\" : null,\n  \"signatures\" : [ ],\n  \"assignedApprovalWorkflows\" : [ {\n    \"releasableType\" : \"com.werum.pasx.ebr.abstractions.ebrcore.ElectronicBatchRecord\",\n    \"workflowDescription\" : \"Electronic Record Report\",\n    \"workflowId\" : \"EBR\",\n    \"workflowVersion\" : \"00000001\"\n  }, {\n    \"releasableType\" : \"com.werum.pasx.spec.abstractions.mbr.MasterBatchRecord\",\n    \"workflowDescription\" : \"Master Batch Record\",\n    \"workflowId\" : \"MBR\",\n    \"workflowVersion\" : \"00000001\"\n  } ]\n}",
+      "payload_encoding": "string"
+    }
+  ]

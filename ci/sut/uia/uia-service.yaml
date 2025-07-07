@@ -1,0 +1,172 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uia-service-deployment
+  namespace: fat
+  labels:
+    app: uia-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: uia
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: uia
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      containers:
+        -
+          name: uia-service-container
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.uiaggregator.service:main-latest
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            -
+              mountPath: /logs
+              name: logs
+          ports:
+            -
+              name: server
+              containerPort: 8080
+              protocol: TCP
+            -
+              name: monitoring
+              containerPort: 8081
+              protocol: TCP
+
+            - name: jmx
+              containerPort: 8082
+              protocol: TCP
+          env:
+            -
+              name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-service
+            -
+              name: SPRING_RABBITMQ_USERNAME
+              value: pasx
+            -
+              name: SPRING_RABBITMQ_PASSWORD
+              value: pasx
+            -
+              name: LOGGING_LEVEL_ROOT
+              value: INFO
+            -
+              name: SERVER_PORT
+              value: "8080"
+            -
+              name: MANAGEMENT_SERVER_PORT
+              value: "8081"
+            -
+              name: JAVA_TOOL_OPTIONS
+              value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Duser.timezone=Europe/Berlin -Duser.language=en -Duser.country=US -Djava.security.egd=file:/dev/./urandom -Dsecurerandom.source=file:/dev/./urandom -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dmanagement.security.enabled=false -Dmanagement.ssl.enabled=false -Dmanagement.server.ssl.enabled=false"
+            -
+              name: PASX_CORS_ENABLED
+              value: "true"
+
+            - name: PASX_MES_UIAGGREGATOR_COOKIE_SIGNATURE-VALIDATION-ACTIVE
+              value: "true"
+            - name: PASX_MES_SHARED_SERVICE_BASE-URI
+              value: "http://${hostname}:8888/pasx"
+          securityContext:
+            runAsUser: 1001
+          livenessProbe:
+            httpGet:
+              path: /monitoring/health/liveness
+              port: 8081
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+          startupProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            failureThreshold: 100
+      restartPolicy: Always
+      securityContext:
+        fsGroup: 1001
+      volumes:
+        -
+          name: logs
+          emptyDir: { }
+  strategy:
+    type: Recreate
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: uia-service-service
+  namespace: fat
+  labels:
+    app: uia-service-service
+spec:
+  ports:
+    -
+      name: server
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    -
+      name: jmx
+      protocol: TCP
+      port: 8082
+      targetPort: 8082
+    -
+      name: monitoring
+      protocol: TCP
+      port: 8081
+      targetPort: 8081
+  selector:
+    app: uia
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uia-service-ingress
+  namespace: fat
+  labels:
+    app: uia-service-ingress
+  annotations:
+spec:
+  rules:
+    -
+      http:
+        paths:
+          -
+            path: /pasx(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: uia-service-service
+                port:
+                  number: 8080
+          # -
+          #   path: /test(/|$)(.*)
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: uia-service-service
+          #       port:
+          #         number: 8082
+          # -
+          #   path: /(.*)
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: uia-service-service
+          #       port:
+          #         number: 8080

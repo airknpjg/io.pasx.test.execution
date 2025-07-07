@@ -1,0 +1,28 @@
+[
+  {
+    "payload_bytes": 1853,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v2.mbrMasterBatchRecordEvent",
+    "message_count": 0,
+    "properties": {
+      "message_id": "fe32630e-0f5d-42d0-893b-9f3bf83e813e",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v2.mbrMasterBatchRecordEvent",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "fe32630e-0f5d-42d0-893b-9f3bf83e813e",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-0440e65a1b5a103ba53baa2d75575197-b0acf2081e8e174b-01",
+        "userId": "101",
+        "userName": "User101"
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"extensions\" : [ ],\n  \"mbrKey\" : 5000427654,\n  \"mbrId\" : \"VT000141\",\n  \"mbrVersionNumber\" : \"00000001\",\n  \"description\" : \"1743007177750-VT00014\",\n  \"currentStatus\" : \"draft\",\n  \"currentStatusTranslated\" : \"Draft\",\n  \"archiveStatus\" : \"notArchived\",\n  \"archiveStatusTranslated\" : \"Not archived\",\n  \"archiveDateTimestampISO8601\" : null,\n  \"longDescription\" : \"ESP for BCONT200: VT000141 - VT000141\",\n  \"specificationType\" : \"ESP\",\n  \"specificationTypeTranslated\" : \"Equipment Specification\",\n  \"productionType\" : \"experiment\",\n  \"productionTypeTranslated\" : \"Experiment\",\n  \"erpProductionVersion\" : null,\n  \"targetMaterialId\" : null,\n  \"targetMaterialName\" : null,\n  \"standardBatchSize\" : 0.0,\n  \"estimatedYield\" : 0.0,\n  \"numberOfUnits\" : 0,\n  \"minBatchSize\" : 0.0,\n  \"maxBatchSize\" : 0.0,\n  \"uomId\" : null,\n  \"uomName\" : null,\n  \"equipmentTypeId\" : \"BCONT200\",\n  \"equipmentTypeName\" : \"Container for bio 200l\",\n  \"validFromDateISO8601\" : null,\n  \"validToDateISO8601\" : null,\n  \"taskBasedExecution\" : true,\n  \"webBasedExecution\" : true,\n  \"specificationExternalId\" : \"ESP/VT000141/1743007177750-VT00014/BCONT200/00000001/VT000128/Simulation\",\n  \"costCenterId\" : null,\n  \"signatures\" : [ ],\n  \"assignedApprovalWorkflows\" : [ {\n    \"releasableType\" : \"com.werum.pasx.ebr.abstractions.ebrorderclosure.BatchRecordReport\",\n    \"workflowDescription\" : \"Batch Record Report\",\n    \"workflowId\" : \"BRR\",\n    \"workflowVersion\" : \"00000001\"\n  }, {\n    \"releasableType\" : \"com.werum.pasx.ebr.abstractions.ebrcore.ElectronicBatchRecord\",\n    \"workflowDescription\" : \"Electronic Record Report\",\n    \"workflowId\" : \"EBR\",\n    \"workflowVersion\" : \"00000001\"\n  }, {\n    \"releasableType\" : \"com.werum.pasx.spec.abstractions.mbr.MasterBatchRecord\",\n    \"workflowDescription\" : \"Master Batch Record\",\n    \"workflowId\" : \"MBR\",\n    \"workflowVersion\" : \"00000001\"\n  } ]\n}",
+    "payload_encoding": "string"
+  }
+]

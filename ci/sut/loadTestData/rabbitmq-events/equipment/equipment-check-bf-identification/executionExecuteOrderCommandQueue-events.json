@@ -1,0 +1,83 @@
+[
+  {
+    "payload_bytes": 640,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteOrderCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "31534a88-2442-41bf-88a1-b44a504833a8",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteOrderCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "31534a88-2442-41bf-88a1-b44a504833a8",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-672351a3b1ba6e1b579e25d396700a84-c8ff93159f4c1d28-00",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 0
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000122\",\n  \"specificationExternalId\" : \"ESP/FAT0001/1730367907853-FAT000/BCONT200/00000001/VT000122/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 1\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 200l\",\n      \"targetEquipmentId\" : \"BC200N01\",\n      \"targetEquipmentTypeId\" : \"BCONT200\",\n      \"targetEquipmentName\" : \"Bio container 200l 01\"\n    }\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 640,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteOrderCommand",
+    "message_count": 1,
+    "properties": {
+      "message_id": "8ed5ba20-769f-44f7-8e06-cd19df4dd272",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteOrderCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "8ed5ba20-769f-44f7-8e06-cd19df4dd272",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-67235cdd96cebc2f1fbbb2ad4d54abae-6f777d169027a548-00",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 0
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000123\",\n  \"specificationExternalId\" : \"ESP/FAT0002/1730370781344-FAT000/BCONT200/00000001/VT000123/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 1\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 200l\",\n      \"targetEquipmentId\" : \"BC200N01\",\n      \"targetEquipmentTypeId\" : \"BCONT200\",\n      \"targetEquipmentName\" : \"Bio container 200l 01\"\n    }\n  }\n}",
+    "payload_encoding": "string"
+  },
+  {
+    "payload_bytes": 640,
+    "redelivered": false,
+    "exchange": "messages",
+    "routing_key": "v1.executionExecuteOrderCommand",
+    "message_count": 0,
+    "properties": {
+      "message_id": "bc394030-8da6-432b-b2cb-4a38ae04f2de",
+      "priority": 0,
+      "delivery_mode": 2,
+      "headers": {
+        "Type": "v1.executionExecuteOrderCommand",
+        "languageTag": "en-US",
+        "spring_returned_message_correlation": "bc394030-8da6-432b-b2cb-4a38ae04f2de",
+        "terminalId": "AUTOEXEC",
+        "timeZoneId": "Europe/Berlin",
+        "traceparent": "00-67235ceac3ed1fe23a35c8f5ce3f0302-b93e8055d813b55b-00",
+        "userId": "101",
+        "userName": "User101",
+        "x-delivery-count": 0
+      },
+      "content_encoding": "UTF-8",
+      "content_type": "application/json"
+    },
+    "payload": "{\n  \"orderType\" : \"MO\",\n  \"orderId\" : \"VT000124\",\n  \"specificationExternalId\" : \"ESP/FAT0003/1730370794320-FAT000/BCONT200/00000001/VT000124/Simulation\",\n  \"specificationToCreate\" : null,\n  \"shopFloorOrders\" : [ {\n    \"basicOperationId\" : \"BO1\",\n    \"context\" : {\n      \"data\" : {\n        \"productionUnitId\" : \"BLEND01\",\n        \"productionUnitName\" : \"Blending unit no. 1\"\n      }\n    }\n  } ],\n  \"orderContext\" : {\n    \"data\" : {\n      \"targetEquipmentTypeName\" : \"Container for bio 200l\",\n      \"targetEquipmentId\" : \"BC200N01\",\n      \"targetEquipmentTypeId\" : \"BCONT200\",\n      \"targetEquipmentName\" : \"Bio container 200l 01\"\n    }\n  }\n}",
+    "payload_encoding": "string"
+  }
+]

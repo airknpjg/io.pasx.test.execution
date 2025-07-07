@@ -1,0 +1,185 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: execution-service-deployment
+  namespace: fat
+  labels:
+    app: execution-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: execution-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: execution-service
+    spec:
+      automountServiceAccountToken: false
+      imagePullSecrets:
+        -
+          name: pasx-registry-secret
+      containers:
+        -
+          name: execution-service-container
+          image: pasxregistry.jfrog.io/pvd/com.werum.pasx.execution.service:main-latest
+          imagePullPolicy: Always
+          volumeMounts:
+            -
+              mountPath: /logs
+              name: logs
+          ports:
+            -
+              name: server
+              containerPort: 8080
+              protocol: TCP
+            -
+              name: monitoring
+              containerPort: 8081
+              protocol: TCP
+          env:
+            -
+              name: SPRING_RABBITMQ_HOST
+              value: rabbitmq-service
+            -
+              name: SPRING_RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: username
+            -
+              name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-credentials # deployed by SUT cluster when RabbitMQ auxiliary service is active
+                  key: password
+            -
+              name: SPRING_PROFILES_ACTIVE
+              value: postgres
+            -
+              name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            -
+              name: SPRING_DATASOURCE_USERNAME
+              value: pasx
+            -
+              name: SPRING_DATASOURCE_PASSWORD
+              value: anyPassword
+            -
+              name: LOGGING_LEVEL_ROOT
+              value: INFO
+            -
+              name: SERVER_PORT
+              value: "8080"
+            -
+              name: MANAGEMENT_SERVER_PORT
+              value: "8081"
+            -
+              name: JAVA_TOOL_OPTIONS
+              value: "-Duser.timezone=Europe/Berlin -Duser.language=en -Duser.country=US -Djava.security.egd=file:/dev/./urandom -Dsecurerandom.source=file:/dev/./urandom -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dmanagement.security.enabled=false -Dmanagement.ssl.enabled=false -Dmanagement.server.ssl.enabled=false -Xms512M -Xmx512M -Xss1M -XX:ReservedCodeCacheSize=240M -XX:PerMethodRecompilationCutoff=20000 -XX:PerBytecodeRecompilationCutoff=20000 -XX:MaxDirectMemorySize=20M"
+            -
+              name: PASX_CORS_ENABLED
+              value: "true"
+            -
+              name: SERVER_SERVLET_CONTEXT_PATH
+              value: ""
+            - name: pasx.mes.execution.internal-url.central
+              value: "http://central-service:8081/central"
+            - name: pasx.mes.execution.external-url.central
+              value: "http://central-service:8081/central"
+            - name: pasx.mes.execution.external-url.orderExecution
+              value: "http://${hostname}:8888/orderexecution"
+          securityContext:
+            runAsUser: 1001
+          livenessProbe:
+            httpGet:
+              path: /monitoring/health/liveness
+              port: 8081
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+          startupProbe:
+            httpGet:
+              path: /monitoring/health/readiness
+              port: 8081
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 300
+          resources:
+            limits:
+              memory: "3000M"
+              cpu: "4000m"
+            requests:
+              memory: "1000M"
+              cpu: "1000m"
+      restartPolicy: Always
+      securityContext:
+        fsGroup: 1001
+      volumes:
+        -
+          name: logs
+          emptyDir: { }
+  strategy:
+    type: Recreate
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: execution-service-service
+  namespace: fat
+  labels:
+    app: execution-service-service
+spec:
+  ports:
+    -
+      name: server
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    -
+      name: monitoring
+      protocol: TCP
+      port: 8081
+      targetPort: 8081
+  selector:
+    app: execution-service
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: execution-service-ingress
+  namespace: fat
+  labels:
+    app: execution-service-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    -
+      http:
+        paths:
+          -
+            path: /execution(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: execution-service-service
+                port:
+                  number: 8080
+          -
+            path: /execution-service-monitoring(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: execution-service-service
+                port:
+                  number: 8081
