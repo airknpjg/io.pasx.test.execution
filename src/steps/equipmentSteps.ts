@@ -563,7 +563,7 @@ Then('the system shows allocated in another context error message', async functi
   expect(text).toContain('This equipment is already used in another context.');
 });
 
-// KJ : to ensure the user is informed by the error message
+// KJ : to ensure the user is informed by the counter error message
 Then('the system shows counter exceeded error message', async function () {
   const errorMsg = pageFixture.page.locator(
     `//div[@class='p-message-text' and @data-p='error']/div[position()=1]`
